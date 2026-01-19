@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Plurals (Pluriels) - Learning Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 French Plurals (Pluriels)</h1>
+            <p class="subtitle">Master the art of making French nouns plural</p>
+        </header>
+
+        <section class="intro-section">
+            <div class="info-box">
+                <h2>Introduction</h2>
+                <p>In English, making plurals is usually very simple. Most of the time, you just add an -s, like <em>cat</em> becoming <em>cats</em>.</p>
+                <p>In French, most nouns also form the plural by adding an -s, but there are a few important things to notice. The pronunciation often does not change. For example, <strong>chat</strong> (cat) and <strong>chats</strong> (cats) sound the same. This means you often <em>see</em> the plural more than you <em>hear</em> it.</p>
+                <p>You also need to remember to change the article when a noun becomes plural:</p>
+                <ul>
+                    <li><strong>un chat</strong> (a cat) → <strong>des chats</strong> (cats)</li>
+                    <li><strong>la table</strong> (the table) → <strong>les tables</strong> (the tables)</li>
+                </ul>
+                <p class="highlight">So, in French, plural forms are mostly about spelling and using the correct article, not always about how the word sounds. Paying attention to these small letters is very important in French.</p>
+            </div>
+        </section>
+
+        <section class="examples-section">
+            <h2>Quick Examples</h2>
+            <div class="table-responsive">
+                <table class="examples-table">
+                    <thead>
+                        <tr>
+                            <th>French Singular</th>
+                            <th>Pronunciation (Singular)</th>
+                            <th>French Plural</th>
+                            <th>Pronunciation (Plural)</th>
+                            <th>Audio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>un chat</td>
+                            <td>uh shah</td>
+                            <td>des chats</td>
+                            <td>day shah</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('un chat')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('des chats')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>une pomme</td>
+                            <td>oon pom</td>
+                            <td>des pommes</td>
+                            <td>day pomm</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('une pomme')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('des pommes')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>le livre</td>
+                            <td>luh leevr</td>
+                            <td>les livres</td>
+                            <td>lay leevr</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('le livre')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('les livres')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>la table</td>
+                            <td>lah tabl</td>
+                            <td>les tables</td>
+                            <td>lay tabl</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('la table')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('les tables')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>un cheval</td>
+                            <td>uh shuh-val</td>
+                            <td>des chevaux</td>
+                            <td>day shuh-voh</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('un cheval')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('des chevaux')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>la maison</td>
+                            <td>lah meh-zon</td>
+                            <td>les maisons</td>
+                            <td>lay meh-zon</td>
+                            <td>
+                                <button class="audio-btn" onclick="speakFrench('la maison')" title="Play singular"><i class="fas fa-volume-up"></i></button>
+                                <button class="audio-btn" onclick="speakFrench('les maisons')" title="Play plural"><i class="fas fa-volume-up"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="rules-navigation">
+            <h2>The 5 Rules of French Plurals</h2>
+            <div class="rules-grid">
+                <button class="rule-btn" onclick="showRule(1)">
+                    <span class="rule-number">1</span>
+                    <span class="rule-title">Add -s</span>
+                </button>
+                <button class="rule-btn" onclick="showRule(2)">
+                    <span class="rule-number">2</span>
+                    <span class="rule-title">-s, -x, -z stay same</span>
+                </button>
+                <button class="rule-btn" onclick="showRule(3)">
+                    <span class="rule-number">3</span>
+                    <span class="rule-title">-eau, -au, -eu add -x</span>
+                </button>
+                <button class="rule-btn" onclick="showRule(4)">
+                    <span class="rule-number">4</span>
+                    <span class="rule-title">-al → -aux</span>
+                </button>
+                <button class="rule-btn" onclick="showRule(5)">
+                    <span class="rule-number">5</span>
+                    <span class="rule-title">7 -ou → -oux</span>
+                </button>
+            </div>
+        </section>
+
+        <div id="rule-1" class="rule-section active">
+            <div class="rule-card">
+                <h3><span class="rule-badge">Rule 1</span> Most nouns form the plural by adding "-s"</h3>
+                <p class="rule-description">Just add <strong>–s</strong> to the end of the word.</p>
+                
+                <div class="table-responsive">
+                    <table class="rule-table">
+                        <thead>
+                            <tr>
+                                <th>French Singular</th>
+                                <th>French Plural</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>un chat</td>
+                                <td>des chats</td>
+                            </tr>
+                            <tr>
+                                <td>une pomme</td>
+                                <td>des pommes</td>
+                            </tr>
+                            <tr>
+                                <td>le livre</td>
+                                <td>les livres</td>
+                            </tr>
+                            <tr>
+                                <td>la table</td>
+                                <td>les tables</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box tip-box">
+                    <h4>💡 Key Points</h4>
+                    <p>See those <strong>"les"</strong> and <strong>"des"</strong> popping up everywhere? It's simple. When a noun becomes plural, <em>le</em> and <em>la</em> change to <strong>les</strong>, and <em>un</em> and <em>une</em> become <strong>des</strong>. That's all there is to it.</p>
+                    <p>Your definite and indefinite articles have simply become plural.</p>
+                </div>
+
+                <button class="next-btn" onclick="showRule(2)">Next: Rule 2 →</button>
+
+                <div class="info-box note-box">
+                    <h4>📝 Note: Liaison</h4>
+                    <p>The final <strong>-s</strong> in plural nouns is usually silent when speaking. However, when a plural word ending in a silent -s is followed by a word that begins with a vowel (a, e, i, o, u, y) or a silent "h", a sound link can happen. This is called <strong>liaison</strong>.</p>
+                    <p>In liaison, the silent -s is pronounced like a <strong>z</strong> sound to connect the words smoothly.</p>
+                    <ul>
+                        <li><strong>Les</strong> = "lay" → with liaison: "lay-z"</li>
+                        <li><strong>Mes</strong> = "may" → with liaison: "may-z"</li>
+                        <li><strong>Des</strong> = "day" → with liaison: "day-z"</li>
+                    </ul>
+                    
+                    <div class="table-responsive">
+                        <table class="liaison-table">
+                            <thead>
+                                <tr>
+                                    <th>Singular Form</th>
+                                    <th>Plural Phrase (with liaison)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>L'ami</td>
+                                    <td>Les amis</td>
+                                </tr>
+                                <tr>
+                                    <td>Mon enfant</td>
+                                    <td>Mes enfants</td>
+                                </tr>
+                                <tr>
+                                    <td>Une idée</td>
+                                    <td>Des idées</td>
+                                </tr>
+                                <tr>
+                                    <td>Le village</td>
+                                    <td>Les villages</td>
+                                </tr>
+                                <tr>
+                                    <td>Le chapeau</td>
+                                    <td>Les chapeaux</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="rule-2" class="rule-section">
+            <div class="rule-card">
+                <h3><span class="rule-badge">Rule 2</span> Nouns ending in -s, -x, or -z stay the same</h3>
+                <p class="rule-description">No change in spelling; they already look plural.</p>
+                
+                <div class="table-responsive">
+                    <table class="rule-table">
+                        <thead>
+                            <tr>
+                                <th>Singular Phrase</th>
+                                <th>Plural Form</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Un choix</td>
+                                <td>Des choix</td>
+                            </tr>
+                            <tr>
+                                <td>Un nez</td>
+                                <td>Des nez</td>
+                            </tr>
+                            <tr>
+                                <td>Un fils</td>
+                                <td>Des fils</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box tip-box">
+                    <h4>💡 Remember</h4>
+                    <p>Only the article shows the plural form. The noun itself remains unchanged!</p>
+                </div>
+
+                <button class="next-btn" onclick="showRule(3)">Next: Rule 3 →</button>
+            </div>
+        </div>
+
+        <div id="rule-3" class="rule-section">
+            <div class="rule-card">
+                <h3><span class="rule-badge">Rule 3</span> Nouns ending in -eau, -au, or -eu add "x"</h3>
+                <p class="rule-description">Add <strong>–x</strong> instead of –s.</p>
+                
+                <div class="table-responsive">
+                    <table class="rule-table">
+                        <thead>
+                            <tr>
+                                <th>Singular Phrase</th>
+                                <th>Plural Form</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Un tableau</td>
+                                <td>Des tableaux</td>
+                            </tr>
+                            <tr>
+                                <td>Un gâteau</td>
+                                <td>Des gâteaux</td>
+                            </tr>
+                            <tr>
+                                <td>Un jeu</td>
+                                <td>Des jeux</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box exception-box">
+                    <h4>⚠️ Exceptions</h4>
+                    <p>Some nouns just add -s instead:</p>
+                    <ul>
+                        <li><strong>bleu</strong> → <strong>bleus</strong></li>
+                        <li><strong>pneu</strong> → <strong>pneus</strong></li>
+                    </ul>
+                </div>
+
+                <button class="next-btn" onclick="showRule(4)">Next: Rule 4 →</button>
+            </div>
+        </div>
+
+        <div id="rule-4" class="rule-section">
+            <div class="rule-card">
+                <h3><span class="rule-badge">Rule 4</span> Nouns ending in -al change to -aux</h3>
+                <p class="rule-description">Replace <strong>-al</strong> with <strong>-aux</strong>.</p>
+                
+                <div class="table-responsive">
+                    <table class="rule-table">
+                        <thead>
+                            <tr>
+                                <th>Singular Phrase</th>
+                                <th>Singular Pronunciation</th>
+                                <th>Plural Form</th>
+                                <th>Plural Pronunciation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Un animal</td>
+                                <td>uh(n) ah-nee-mahl</td>
+                                <td>Des animaux</td>
+                                <td>day ah-nee-moh</td>
+                            </tr>
+                            <tr>
+                                <td>Un journal</td>
+                                <td>uh(n) zhoor-nahl</td>
+                                <td>Des journaux</td>
+                                <td>day zhoor-noh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box exception-box">
+                    <h4>⚠️ Exceptions</h4>
+                    <p>Some nouns just add -s:</p>
+                    <ul>
+                        <li><strong>un festival</strong> → <strong>des festivals</strong></li>
+                    </ul>
+                </div>
+
+                <button class="next-btn" onclick="showRule(5)">Next: Rule 5 →</button>
+            </div>
+        </div>
+
+        <div id="rule-5" class="rule-section">
+            <div class="rule-card">
+                <h3><span class="rule-badge">Rule 5</span> Seven nouns ending in -ou change to -oux</h3>
+                <p class="rule-description">Most other -ou nouns just take a regular -s in plural. These are the <strong>7 exceptions</strong> in French where -ou becomes -oux in the plural.</p>
+                
+                <div class="table-responsive">
+                    <table class="rule-table special-table">
+                        <thead>
+                            <tr>
+                                <th>Singular Phrase</th>
+                                <th>Meaning</th>
+                                <th>Singular Pronunciation</th>
+                                <th>Plural Form</th>
+                                <th>Plural Pronunciation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Un bijou</td>
+                                <td>a jewel / jewellery</td>
+                                <td>uh(n) bee-zhoo</td>
+                                <td>Des bijoux</td>
+                                <td>day bee-zhoo</td>
+                            </tr>
+                            <tr>
+                                <td>Un caillou</td>
+                                <td>a pebble</td>
+                                <td>uh(n) kai-yoo</td>
+                                <td>Des cailloux</td>
+                                <td>day kai-yoo</td>
+                            </tr>
+                            <tr>
+                                <td>Un chou</td>
+                                <td>a cabbage</td>
+                                <td>uh(n) shoo</td>
+                                <td>Des choux</td>
+                                <td>day shoo</td>
+                            </tr>
+                            <tr>
+                                <td>Un genou</td>
+                                <td>a knee</td>
+                                <td>uh(n) zhuh-noo</td>
+                                <td>Des genoux</td>
+                                <td>day zhuh-noo</td>
+                            </tr>
+                            <tr>
+                                <td>Un hibou</td>
+                                <td>an owl</td>
+                                <td>uh(n) ee-boo</td>
+                                <td>Des hiboux</td>
+                                <td>day ee-boo</td>
+                            </tr>
+                            <tr>
+                                <td>Un joujou</td>
+                                <td>a toy</td>
+                                <td>uh(n) zhoo-zhoo</td>
+                                <td>Des joujoux</td>
+                                <td>day zhoo-zhoo</td>
+                            </tr>
+                            <tr>
+                                <td>Un pou</td>
+                                <td>a louse</td>
+                                <td>uh(n) poo</td>
+                                <td>Des poux</td>
+                                <td>day poo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box tip-box">
+                    <h4>💡 Memory Tip</h4>
+                    <p>Remember these 7 special words! All other -ou words just add a regular -s.</p>
+                </div>
+
+                <button class="next-btn" onclick="showRule(1)">View Summary →</button>
+            </div>
+        </div>
+
+        <section class="summary-section">
+            <h2>Summary of All Rules</h2>
+            <div class="table-responsive">
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Rule</th>
+                            <th>Main Idea</th>
+                            <th>Examples</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Rule 1</strong></td>
+                            <td>Most nouns form the plural by adding -s</td>
+                            <td>chat → chats<br>pomme → pommes<br>livre → livres</td>
+                            <td>The final -s is silent. Articles change to <em>les</em> and <em>des</em>. Liaison appears before vowels.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rule 2</strong></td>
+                            <td>Nouns ending in -s, -x, or -z do not change</td>
+                            <td>choix → choix<br>nez → nez<br>fils → fils</td>
+                            <td>Only the article shows the plural form.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rule 3</strong></td>
+                            <td>Nouns ending in -eau, -au, or -eu add -x</td>
+                            <td>tableau → tableaux<br>gâteau → gâteaux<br>jeu → jeux</td>
+                            <td>The -x is silent. A few exceptions add -s.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rule 4</strong></td>
+                            <td>Nouns ending in -al change to -aux</td>
+                            <td>animal → animaux<br>journal → journaux</td>
+                            <td>Some exceptions add -s, such as festival → festivals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rule 5</strong></td>
+                            <td>Seven nouns ending in -ou change to -oux</td>
+                            <td>bijou → bijoux<br>chou → choux<br>genou → genoux</td>
+                            <td>Most other -ou nouns take a regular -s.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="agreement-section">
+            <div class="info-box">
+                <h2>What Else Changes with Plural Nouns?</h2>
+                <p>For now, just remember this: in French, when a noun is plural, some other words linked to it are usually plural too. These include articles (like <em>les</em>), adjectives (like <em>grands</em>), verbs (like <em>jouent</em>), demonstratives (like <em>ces</em>), and possessives (like <em>mes</em>).</p>
+                
+                <div class="table-responsive">
+                    <table class="agreement-table">
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>French</th>
+                                <th>English Translation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Definite article</td>
+                                <td>les chats</td>
+                                <td>the cats</td>
+                            </tr>
+                            <tr>
+                                <td>Indefinite article</td>
+                                <td>des livres</td>
+                                <td>(some) books</td>
+                            </tr>
+                            <tr>
+                                <td>Partitive article</td>
+                                <td>des fruits</td>
+                                <td>(some) fruits</td>
+                            </tr>
+                            <tr>
+                                <td>Adjective</td>
+                                <td>grandes maisons</td>
+                                <td>big houses</td>
+                            </tr>
+                            <tr>
+                                <td>Verb (subject-verb)</td>
+                                <td>les enfants jouent</td>
+                                <td>the children are playing</td>
+                            </tr>
+                            <tr>
+                                <td>Demonstrative adjective</td>
+                                <td>ces chaises</td>
+                                <td>these chairs</td>
+                            </tr>
+                            <tr>
+                                <td>Possessive adjective</td>
+                                <td>ses amis</td>
+                                <td>his/her friends</td>
+                            </tr>
+                            <tr>
+                                <td>Pronoun (subject or obj)</td>
+                                <td>ils parlent, je les vois</td>
+                                <td>they are speaking, I see them</td>
+                            </tr>
+                            <tr>
+                                <td>à / de contractions</td>
+                                <td>aux filles, des garçons</td>
+                                <td>to the girls, (some) boys</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="note-text">You do not need to master all of this right now. You will learn these rules step by step as you continue learning French. This note is only to keep you informed so you know what is coming later.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Keep practicing and soon French plurals will become second nature! 🎉</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
