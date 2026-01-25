@@ -1,32 +1,25 @@
-// Function to show a specific rule section
+// Rule navigation function
 function showRule(ruleNumber) {
   // Hide all rule sections
-  const allRules = document.querySelectorAll(".rule-section");
-  allRules.forEach((rule) => {
-    rule.classList.remove("active");
+  const allRules = document.querySelectorAll('.rule-section');
+  allRules.forEach(rule => {
+    rule.classList.remove('active');
   });
-
+  
   // Show the selected rule
   const selectedRule = document.getElementById(`rule-${ruleNumber}`);
   if (selectedRule) {
-    selectedRule.classList.add("active");
-
-    // Smooth scroll to the rule section
-    selectedRule.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    selectedRule.classList.add('active');
+    selectedRule.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
+  
   // Update button states
-  const allButtons = document.querySelectorAll(".rule-btn");
+  const allButtons = document.querySelectorAll('.rule-btn');
   allButtons.forEach((btn, index) => {
     if (index + 1 === ruleNumber) {
-      btn.style.borderColor = "var(--primary-color)";
-      btn.style.background = "var(--bg-secondary)";
+      btn.classList.add('active');
     } else {
-      btn.style.borderColor = "var(--border-color)";
-      btn.style.background = "white";
+      btn.classList.remove('active');
     }
   });
 }
@@ -54,7 +47,7 @@ function speakFrench(text) {
 
 // Load voices (some browsers need this)
 window.speechSynthesis.onvoiceschanged = function () {
-  window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoges();
 };
 
 // Translation dictionary for French to English
@@ -131,60 +124,10 @@ const translations = {
 };
 
 // Initialize: Show the first rule by default
-document.addEventListener("DOMContentLoaded", function () {
-  showRule(1);
 
-  // Add translation tooltips to all table cells with French text
-  addTranslationTooltips();
+// Add keyboard navigation
 
-  // Add smooth scrolling for all anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
-  });
-
-  // Add keyboard navigation
-  document.addEventListener("keydown", function (e) {
-    if (e.key >= "1" && e.key <= "5") {
-      const ruleNumber = parseInt(e.key);
-      showRule(ruleNumber);
-    }
-  });
-
-  // Add hover effects to table rows
-  const tableRows = document.querySelectorAll("tbody tr");
-  tableRows.forEach((row) => {
-    row.addEventListener("mouseenter", function () {
-      this.style.transform = "scale(1.01)";
-      this.style.transition = "transform 0.2s ease";
-    });
-
-    row.addEventListener("mouseleave", function () {
-      this.style.transform = "scale(1)";
-    });
-  });
-
-  // Add progress indicator
-  let scrollTimeout;
-  window.addEventListener("scroll", function () {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(function () {
-      const scrollPercentage =
-        (window.scrollY /
-          (document.documentElement.scrollHeight - window.innerHeight)) *
-        100;
-      updateProgressBar(scrollPercentage);
-    }, 100);
-  });
-});
+// Add hover effects to table rows
 
 // Function to update progress bar (optional enhancement)
 function updateProgressBar(percentage) {
@@ -202,7 +145,7 @@ function highlightText(searchTerm) {
   if (searchTerm.length > 2) {
     const newHTML = innerHTML.replace(
       searchRegex,
-      (match) => `<mark>${match}</mark>`
+      (match) => `<mark>${match}</mark>`,
     );
     content.innerHTML = newHTML;
   }
@@ -216,7 +159,7 @@ function printPage() {
 // Export to PDF functionality (requires additional library in production)
 function exportToPDF() {
   alert(
-    "PDF export feature coming soon! For now, you can use your browser's print function to save as PDF."
+    "PDF export feature coming soon! For now, you can use your browser's print function to save as PDF.",
   );
   window.print();
 }
@@ -226,7 +169,7 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   localStorage.setItem(
     "darkMode",
-    document.body.classList.contains("dark-mode")
+    document.body.classList.contains("dark-mode"),
   );
 }
 
@@ -237,22 +180,55 @@ if (localStorage.getItem("darkMode") === "true") {
 
 // Add translation tooltips to French text
 function addTranslationTooltips() {
-  // Find all table cells
-  const tableCells = document.querySelectorAll("td");
+  // Find all french-word spans first
+  const frenchWordSpans = document.querySelectorAll(".french-word");
+  
+  frenchWordSpans.forEach((span) => {
+    const text = span.textContent.trim();
 
-  tableCells.forEach((cell) => {
-    const text = cell.textContent.trim();
-
-    // Check if the text exists in our translations
-    if (translations[text]) {
+    // Check if the text exists in our translations (case-insensitive)
+    const translationKey = Object.keys(translations).find(
+      key => key.toLowerCase() === text.toLowerCase()
+    );
+    
+    if (translationKey) {
       // Add hover attributes and class
-      cell.classList.add("french-text");
-      cell.setAttribute("data-translation", translations[text]);
+      span.classList.add("french-text");
+      span.setAttribute("data-translation", translations[translationKey]);
 
       // Create tooltip element
       const tooltip = document.createElement("span");
       tooltip.className = "tooltip";
-      tooltip.textContent = translations[text];
+      tooltip.textContent = translations[translationKey];
+      span.appendChild(tooltip);
+    }
+  });
+
+  // Find all table cells (for tables without french-word spans)
+  const tableCells = document.querySelectorAll("td");
+
+  tableCells.forEach((cell) => {
+    // Skip cells that have audio buttons or already processed french-word spans
+    if (cell.querySelector('.audio-btn-inline') || cell.querySelector('.french-word')) {
+      return;
+    }
+    
+    const text = cell.textContent.trim();
+
+    // Check if the text exists in our translations (case-insensitive)
+    const translationKey = Object.keys(translations).find(
+      key => key.toLowerCase() === text.toLowerCase()
+    );
+    
+    if (translationKey) {
+      // Add hover attributes and class
+      cell.classList.add("french-text");
+      cell.setAttribute("data-translation", translations[translationKey]);
+
+      // Create tooltip element
+      const tooltip = document.createElement("span");
+      tooltip.className = "tooltip";
+      tooltip.textContent = translations[translationKey];
       cell.appendChild(tooltip);
     }
   });
@@ -266,7 +242,7 @@ function addTranslationTooltips() {
     Object.keys(translations).forEach((french) => {
       const regex = new RegExp(
         `<(strong|em)>\\s*${escapeRegex(french)}\\s*<\/(strong|em)>`,
-        "gi"
+        "gi",
       );
       const match = html.match(regex);
 
@@ -284,3 +260,15 @@ function addTranslationTooltips() {
 function escapeRegex(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+
+// Initialize page on load
+document.addEventListener('DOMContentLoaded', function() {
+  // Add translation tooltips
+  addTranslationTooltips();
+  
+  // Set first rule button as active
+  const firstButton = document.querySelector('.rule-btn');
+  if (firstButton) {
+    firstButton.classList.add('active');
+  }
+});
