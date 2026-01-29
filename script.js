@@ -1,3 +1,24 @@
+// Theme Toggle Function
+function toggleTheme() {
+  const body = document.body;
+  const currentTheme = localStorage.getItem('theme') || 'warm';
+  
+  // Remove all theme classes first
+  body.classList.remove('light-mode', 'dark-mode');
+  
+  // Cycle through themes: warm → light → dark → warm
+  if (currentTheme === 'warm') {
+    body.classList.add('light-mode');
+    localStorage.setItem('theme', 'light');
+  } else if (currentTheme === 'light') {
+    body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    // dark mode, go back to warm
+    localStorage.setItem('theme', 'warm');
+  }
+}
+
 // Rule navigation function
 function showRule(ruleNumber) {
   // Hide all rule sections
@@ -47,7 +68,7 @@ function speakFrench(text) {
 
 // Load voices (some browsers need this)
 window.speechSynthesis.onvoiceschanged = function () {
-  window.speechSynthesis.getVoges();
+  window.speechSynthesis.getVoices();
 };
 
 // Translation dictionary for French to English
@@ -270,5 +291,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const firstButton = document.querySelector('.rule-btn');
   if (firstButton) {
     firstButton.classList.add('active');
+  }
+  
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'warm';
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+  } else if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+  
+  // Add theme toggle button listener
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
   }
 });

@@ -17,6 +17,9 @@
     />
   </head>
   <body>
+    <button class="theme-toggle" id="themeToggle" title="Toggle reading mode">
+      <i class="fas fa-adjust"></i>
+    </button>
     <div class="container">
       <header>
         <h1>🇫🇷 French Plurals (Pluriels)</h1>
@@ -43,12 +46,12 @@
           </p>
           <ul>
             <li>
-              <strong>un chat</strong> (a cat) →
-              <strong>des chats</strong> (cats)
+              <strong>un chat</strong>
+              <strong>des chats</strong>
             </li>
             <li>
-              <strong>la table</strong> (the table) →
-              <strong>les tables</strong> (the tables)
+              <strong>la table</strong> 
+              <strong>les tables</strong>
             </li>
           </ul>
           <p class="highlight">
@@ -78,7 +81,6 @@
                     onclick="speakFrench('un chat')"
                     title="Play audio"
                   >
-
                     <i class="fas fa-volume-up"></i>
                   </button>
                 </td>
@@ -228,20 +230,92 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>un chat</td>
-                  <td>des chats</td>
+                  <td>
+                    <span class="french-word">un chat</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('un chat')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">des chats</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('des chats')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>une pomme</td>
-                  <td>des pommes</td>
+                  <td>
+                    <span class="french-word">une pomme</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('une pomme')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">des pommes</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('des pommes')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>le livre</td>
-                  <td>les livres</td>
+                  <td>
+                    <span class="french-word">le livre</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('le livre')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">les livres</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('les livres')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>la table</td>
-                  <td>les tables</td>
+                  <td>
+                    <span class="french-word">la table</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('la table')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">les tables</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('les tables')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -336,16 +410,70 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Un choix</td>
-                  <td>Des choix</td>
+                  <td>
+                    <span class="french-word">Un choix</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un choix')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des choix</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des choix')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un nez</td>
-                  <td>Des nez</td>
+                  <td>
+                    <span class="french-word">Un nez</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un nez')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des nez</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des nez')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un fils</td>
-                  <td>Des fils</td>
+                  <td>
+                    <span class="french-word">Un fils</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un fils')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des fils</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des fils')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -379,16 +507,70 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Un tableau</td>
-                  <td>Des tableaux</td>
+                  <td>
+                    <span class="french-word">Un tableau</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un tableau')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des tableaux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des tableaux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un gâteau</td>
-                  <td>Des gâteaux</td>
+                  <td>
+                    <span class="french-word">Un gâteau</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un gâteau')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des gâteaux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des gâteaux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un jeu</td>
-                  <td>Des jeux</td>
+                  <td>
+                    <span class="french-word">Un jeu</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un jeu')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des jeux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des jeux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -420,23 +602,53 @@
               <thead>
                 <tr>
                   <th>Singular Phrase</th>
-                  <th>Singular Pronunciation</th>
                   <th>Plural Form</th>
-                  <th>Plural Pronunciation</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Un animal</td>
-                  <td>uh(n) ah-nee-mahl</td>
-                  <td>Des animaux</td>
-                  <td>day ah-nee-moh</td>
+                  <td>
+                    <span class="french-word">Un animal</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un animal')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des animaux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des animaux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un journal</td>
-                  <td>uh(n) zhoor-nahl</td>
-                  <td>Des journaux</td>
-                  <td>day zhoor-noh</td>
+                  <td>
+                    <span class="french-word">Un journal</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un journal')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">Des journaux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des journaux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -472,60 +684,170 @@
                 <tr>
                   <th>Singular Phrase</th>
                   <th>Meaning</th>
-                  <th>Singular Pronunciation</th>
                   <th>Plural Form</th>
-                  <th>Plural Pronunciation</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Un bijou</td>
+                  <td>
+                    <span class="french-word">Un bijou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un bijou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a jewel / jewellery</td>
-                  <td>uh(n) bee-zhoo</td>
-                  <td>Des bijoux</td>
-                  <td>day bee-zhoo</td>
+                  <td>
+                    <span class="french-word">Des bijoux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des bijoux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un caillou</td>
+                  <td>
+                    <span class="french-word">Un caillou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un caillou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a pebble</td>
-                  <td>uh(n) kai-yoo</td>
-                  <td>Des cailloux</td>
-                  <td>day kai-yoo</td>
+                  <td>
+                    <span class="french-word">Des cailloux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des cailloux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un chou</td>
+                  <td>
+                    <span class="french-word">Un chou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un chou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a cabbage</td>
-                  <td>uh(n) shoo</td>
-                  <td>Des choux</td>
-                  <td>day shoo</td>
+                  <td>
+                    <span class="french-word">Des choux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des choux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un genou</td>
+                  <td>
+                    <span class="french-word">Un genou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un genou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a knee</td>
-                  <td>uh(n) zhuh-noo</td>
-                  <td>Des genoux</td>
-                  <td>day zhuh-noo</td>
+                  <td>
+                    <span class="french-word">Des genoux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des genoux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un hibou</td>
+                  <td>
+                    <span class="french-word">Un hibou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un hibou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>an owl</td>
-                  <td>uh(n) ee-boo</td>
-                  <td>Des hiboux</td>
-                  <td>day ee-boo</td>
+                  <td>
+                    <span class="french-word">Des hiboux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des hiboux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un joujou</td>
+                  <td>
+                    <span class="french-word">Un joujou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un joujou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a toy</td>
-                  <td>uh(n) zhoo-zhoo</td>
-                  <td>Des joujoux</td>
-                  <td>day zhoo-zhoo</td>
+                  <td>
+                    <span class="french-word">Des joujoux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des joujoux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Un pou</td>
+                  <td>
+                    <span class="french-word">Un pou</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Un pou')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                   <td>a louse</td>
-                  <td>uh(n) poo</td>
-                  <td>Des poux</td>
-                  <td>day poo</td>
+                  <td>
+                    <span class="french-word">Des poux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('Des poux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
