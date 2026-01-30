@@ -504,6 +504,199 @@
         letter-spacing: 0.05em;
       }
 
+      /* Listening Practice Section */
+      .listening-section {
+        padding: 60px 40px 80px;
+        background: var(--bg-primary);
+      }
+
+      .listening-card {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fef8f0;
+        border: 3px solid #d4a574;
+        border-radius: 24px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      }
+
+      .listening-content {
+        padding: 40px 48px;
+      }
+
+      .audio-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+        background: #f5e6d3;
+        border: 2px solid #d4a574;
+        border-radius: 50px;
+        margin-bottom: 32px;
+      }
+
+      .main-play-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .main-play-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+      }
+
+      .audio-info {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex: 1;
+      }
+
+      .speed-display {
+        font-size: 0.9rem;
+        color: #6b5a47;
+        font-weight: 500;
+        min-width: 40px;
+      }
+
+      .progress-bar {
+        flex: 1;
+        height: 6px;
+        background: #e0d0bf;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #d4a574 0%, #b8935f 100%);
+        width: 45%;
+        border-radius: 3px;
+        transition: width 0.3s ease;
+      }
+
+      .refresh-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+        color: #6b5a47;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .refresh-btn:hover {
+        background: #e0d0bf;
+        transform: rotate(180deg);
+      }
+
+      .story-title {
+        color: #8b2b2b;
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+        font-weight: 600;
+      }
+
+      .story-text-box {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        margin-bottom: 28px;
+      }
+
+      .story-sentence {
+        margin-bottom: 20px;
+        line-height: 1.7;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .story-sentence.active {
+        background: linear-gradient(90deg, #fff5e6 0%, #ffe8cc 100%);
+        border-left: 4px solid #d4a574;
+        padding-left: 16px;
+      }
+
+      .story-sentence:last-child {
+        margin-bottom: 0;
+      }
+
+      .french-sentence {
+        color: #2d1f1a;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.05rem;
+      }
+
+      .story-text-box .translation {
+        color: #7a6a5a;
+        font-size: 0.9rem;
+        font-style: normal;
+        display: block;
+      }
+
+      .listening-image {
+        position: relative;
+        overflow: hidden;
+        border-left: 3px solid #d4a574;
+      }
+
+      .listening-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .listening-controls {
+        display: none;
+      }
+
+      /* Dark mode styles for listening section */
+      body.dark-mode .listening-card {
+        background: #2d2520;
+        border-color: #6b5a47;
+      }
+
+      body.dark-mode .audio-header {
+        background: #3a302a;
+        border-color: #6b5a47;
+      }
+
+      body.dark-mode .progress-bar {
+        background: #4a3f38;
+      }
+
+      body.dark-mode .story-title {
+        color: #d4a574;
+      }
+
+      body.dark-mode .speed-display,
+      body.dark-mode .refresh-btn {
+        color: #d4a574;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         header {
@@ -538,6 +731,38 @@
         th,
         td {
           padding: 12px 8px;
+        }
+
+        .listening-section {
+          padding: 40px 24px;
+        }
+
+        .listening-card {
+          grid-template-columns: 1fr;
+        }
+
+        .listening-content {
+          padding: 32px 24px;
+        }
+
+        .listening-image {
+          height: 250px;
+          border-left: none;
+          border-top: 3px solid #d4a574;
+        }
+
+        .audio-header {
+          padding: 12px 16px;
+        }
+
+        .main-play-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+
+        .story-title {
+          font-size: 1.4rem;
         }
       }
 
@@ -1834,6 +2059,108 @@
         </div>
       </section>
 
+      <!-- Audio Story Section -->
+      <section class="listening-section">
+        <div class="listening-card">
+          <div class="listening-content">
+            <div class="audio-header">
+              <button class="main-play-btn" id="mainPlayBtn">
+                <i class="fas fa-play"></i>
+              </button>
+              <div class="audio-info">
+                <span class="speed-display">1.0x</span>
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <button class="refresh-btn" id="refreshBtn">
+                  <i class="fas fa-redo"></i>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="story-title">Deux café S'il-vous plaît</h3>
+
+            <div class="story-text-box" id="storyTextBox">
+              <p class="story-sentence" data-index="0">
+                <strong class="french-sentence"
+                  >Ce matin, je marche dans cette rue calme et je regarde autour
+                  de moi.</strong
+                >
+                <span class="translation"
+                  >This morning, I walk in this quiet street and look
+                  around.</span
+                >
+              </p>
+
+              <p class="story-sentence" data-index="1">
+                <strong class="french-sentence"
+                  >Près du café, je vois cet homme avec un sourire et il parle
+                  doucement.</strong
+                >
+                <span class="translation"
+                  >Near the café, I see this man with a smile and he speaks
+                  softly.</span
+                >
+              </p>
+
+              <p class="story-sentence" data-index="2">
+                <strong class="french-sentence"
+                  >Cet homme lit ce livre-ci pendant qu'il boit un café.</strong
+                >
+                <span class="translation"
+                  >This man reads this book here while he drinks a coffee.</span
+                >
+              </p>
+
+              <p class="story-sentence" data-index="3">
+                <strong class="french-sentence"
+                  >Un peu plus loin, ces enfants jouent dans le parc-là et rient
+                  ensemble.</strong
+                >
+                <span class="translation"
+                  >A little farther, these children play in that park there and
+                  laugh together.</span
+                >
+              </p>
+
+              <p class="story-sentence" data-index="4">
+                <strong class="french-sentence"
+                  >Cette scène simple me rend calme et heureux.</strong
+                >
+                <span class="translation"
+                  >This simple scene makes me calm and happy.</span
+                >
+              </p>
+            </div>
+
+            <div class="listening-controls">
+              <button class="play-story-btn" id="playStoryBtn">
+                <i class="fas fa-play"></i> Play Story
+              </button>
+              <button
+                class="pause-story-btn"
+                id="pauseStoryBtn"
+                style="display: none"
+              >
+                <i class="fas fa-pause"></i> Pause
+              </button>
+              <select id="speedControl" class="speed-selector">
+                <option value="0.6">Slow</option>
+                <option value="0.8" selected>Normal</option>
+                <option value="1.0">Fast</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="listening-image">
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop&q=80"
+              alt="Cafe terrace with coffee and food"
+            />
+          </div>
+        </div>
+      </section>
+
       <footer>
         <p>
           Keep practicing and soon French plurals will become second nature! 🎉
@@ -1842,6 +2169,113 @@
     </div>
 
     <script>
+      // Story audio player variables
+      let storyText = `Ce matin, je marche dans cette rue calme et je regarde autour de moi. Près du café, je vois cet homme avec un sourire et il parle doucement. Cet homme lit ce livre-ci pendant qu'il boit un café. Un peu plus loin, ces enfants jouent dans le parc-là et rient ensemble. Cette scène simple me rend calme et heureux.`;
+      let storySentences = [
+        "Ce matin, je marche dans cette rue calme et je regarde autour de moi.",
+        "Près du café, je vois cet homme avec un sourire et il parle doucement.",
+        "Cet homme lit ce livre-ci pendant qu'il boit un café.",
+        "Un peu plus loin, ces enfants jouent dans le parc-là et rient ensemble.",
+        "Cette scène simple me rend calme et heureux.",
+      ];
+      let storyUtterance = null;
+      let isPlaying = false;
+      let currentSentenceIndex = 0;
+
+      // Highlight sentence
+      function highlightSentence(index) {
+        // Remove all active classes
+        document.querySelectorAll(".story-sentence").forEach((el) => {
+          el.classList.remove("active");
+        });
+
+        // Add active class to current sentence
+        const sentence = document.querySelector(
+          `.story-sentence[data-index="${index}"]`,
+        );
+        if (sentence) {
+          sentence.classList.add("active");
+          sentence.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+
+      // Clear all highlights
+      function clearHighlights() {
+        document.querySelectorAll(".story-sentence").forEach((el) => {
+          el.classList.remove("active");
+        });
+      }
+
+      // Play story function with highlighting
+      function playStory() {
+        const mainPlayBtn = document.getElementById("mainPlayBtn");
+        const speedControl = document.getElementById("speedControl");
+
+        if (isPlaying) {
+          // Pause
+          window.speechSynthesis.pause();
+          isPlaying = false;
+          mainPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+        } else if (window.speechSynthesis.paused && storyUtterance) {
+          // Resume
+          window.speechSynthesis.resume();
+          isPlaying = true;
+          mainPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          // Start new - play sentence by sentence
+          window.speechSynthesis.cancel();
+          currentSentenceIndex = 0;
+          playSentence(0);
+          isPlaying = true;
+          mainPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+      }
+
+      // Play individual sentence with highlighting
+      function playSentence(index) {
+        if (index >= storySentences.length) {
+          // Finished all sentences
+          isPlaying = false;
+          const mainPlayBtn = document.getElementById("mainPlayBtn");
+          if (mainPlayBtn) {
+            mainPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+          }
+          clearHighlights();
+          return;
+        }
+
+        highlightSentence(index);
+
+        const utterance = new SpeechSynthesisUtterance(storySentences[index]);
+        const speedControl = document.getElementById("speedControl");
+        utterance.lang = "fr-FR";
+        utterance.rate = parseFloat(speedControl ? speedControl.value : 0.8);
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        utterance.onend = function () {
+          if (isPlaying) {
+            // Play next sentence
+            currentSentenceIndex++;
+            setTimeout(() => playSentence(currentSentenceIndex), 500);
+          }
+        };
+
+        window.speechSynthesis.speak(utterance);
+      }
+
+      // Refresh/Stop story function
+      function refreshStory() {
+        window.speechSynthesis.cancel();
+        isPlaying = false;
+        currentSentenceIndex = 0;
+        clearHighlights();
+        const mainPlayBtn = document.getElementById("mainPlayBtn");
+        if (mainPlayBtn) {
+          mainPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+
       // Theme Toggle Function
       function toggleTheme() {
         const body = document.body;
@@ -2152,6 +2586,28 @@
         const themeToggle = document.getElementById("themeToggle");
         if (themeToggle) {
           themeToggle.addEventListener("click", toggleTheme);
+        }
+
+        // Add story audio player listeners
+        const mainPlayBtn = document.getElementById("mainPlayBtn");
+        const refreshBtn = document.getElementById("refreshBtn");
+
+        if (mainPlayBtn) {
+          mainPlayBtn.addEventListener("click", playStory);
+        }
+
+        if (refreshBtn) {
+          refreshBtn.addEventListener("click", refreshStory);
+        }
+
+        // Update speed when changed
+        const speedControl = document.getElementById("speedControl");
+        if (speedControl) {
+          speedControl.addEventListener("change", function () {
+            if (isPlaying) {
+              refreshStory();
+            }
+          });
         }
       });
     </script>
