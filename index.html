@@ -10,11 +10,779 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      :root {
+        /* Original warm color scheme */
+        --primary-color: #2563eb;
+        --accent-color: #3b82f6;
+        --text-primary: #3d2817;
+        --text-secondary: #5d4a3a;
+        --text-tertiary: #9ca3af;
+        --text-marron: #5b342e;
+        --bg-primary: #f9f5f0;
+        --bg-secondary: #f3ede6;
+        --bg-card: #ffffff;
+        --border-color: #e5e7eb;
+        --hover-bg: #f9fafb;
+        --bg-neutral: #f9fafb;
+
+        /* Improved shadows */
+        --border-radius: 16px;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+        --header-color: #ffa90a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "DM Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        min-height: 100vh;
+        padding: 0;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .container {
+        margin: 0 auto;
+        background: transparent;
+        padding: 0 20px;
+        max-width: 1200px;
+      }
+
+      header {
+        padding: 80px 40px 60px;
+        text-align: left;
+        border-bottom: none;
+        background: transparent;
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 16px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+
+      section {
+        padding: 50px 40px;
+        border-bottom: none;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 36px;
+        color: var(--text-marron);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-align: left;
+        position: relative;
+        padding-bottom: 12px;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--header-color);
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.85rem;
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      .info-box {
+        background: var(--bg-card);
+        box-shadow: var(--shadow-md);
+        padding: 28px;
+        border-radius: var(--border-radius);
+        margin-bottom: 28px;
+        border: 1px solid var(--border-color);
+      }
+
+      .tip-box {
+        background: #eff6ff;
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .note-box {
+        background: #ffffff;
+      }
+
+      .exception-box {
+        background: #fee2e2;
+        border-left: 4px solid #ef4444;
+      }
+
+      .highlight {
+        background: #fef3c7;
+        padding: 12px 16px;
+        font-weight: 500;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid #fbbf24;
+      }
+
+      ul {
+        margin-left: 24px;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-bottom: 10px;
+        color: var(--text-secondary);
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+        margin: 32px 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        border-radius: 15px;
+      }
+
+      .table-responsive::-webkit-scrollbar {
+        display: none;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: var(--bg-card);
+        border: none;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+
+      thead {
+        background: hsl(39, 100%, 66%);
+        border-bottom: none;
+      }
+
+      thead tr:first-child th:first-child {
+        border-top-left-radius: 12px;
+      }
+
+      thead tr:first-child th:last-child {
+        border-top-right-radius: 12px;
+      }
+
+      tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+      }
+
+      tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+      }
+
+      td {
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        font-size: 1rem;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      td:last-child {
+        border-right: none;
+      }
+
+      th {
+        padding: 20px 24px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-primary);
+        border-right: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      th:last-child {
+        border-right: none;
+      }
+
+      .audio-cell {
+        width: 40px;
+        padding: 8px;
+        text-align: center;
+      }
+
+      .french-word {
+        display: inline-block;
+        min-width: 120px;
+      }
+
+      tbody tr:nth-child(odd) {
+        background: #fffbeb;
+      }
+
+      tbody tr:nth-child(even) {
+        background: white;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .audio-btn {
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 0;
+        cursor: pointer;
+
+        transition: all 0.2s ease;
+        font-size: 0.85rem;
+        margin: 2px;
+      }
+
+      .audio-btn:first-child {
+        margin-left: 0;
+      }
+
+      td:has(.audio-btn) {
+        white-space: nowrap;
+      }
+
+      .audio-btn:active {
+        transform: scale(0.95);
+      }
+
+      .audio-btn i {
+        pointer-events: none;
+      }
+
+      .audio-btn-inline {
+        background: transparent;
+        color: #ec4899;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.9rem;
+        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .audio-btn-inline:hover {
+        color: #db2777;
+        transform: scale(1.15);
+      }
+
+      .audio-btn-inline:active {
+        transform: scale(0.95);
+      }
+
+      .audio-btn-inline i {
+        pointer-events: none;
+      }
+
+      td {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .rules-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        margin: 32px 0;
+      }
+
+      .rule-btn {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 24px 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-family: inherit;
+      }
+
+      .rule-btn:hover {
+        border-color: var(--primary-color);
+        background: var(--bg-secondary);
+      }
+
+      .rule-number {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .rule-title {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .rule-section {
+        display: block;
+        padding: 40px 40px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .rule-card {
+        background: var(--bg-card);
+        padding: 32px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+      }
+
+      .rule-badge {
+        background: var(--text-primary);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-right: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: inline-block;
+      }
+
+      .rule-description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        font-weight: 400;
+      }
+
+      .next-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 40px;
+        font-family: inherit;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .next-btn:hover {
+        background: var(--accent-color);
+      }
+
+      .next-btn:active {
+        transform: translateY(1px);
+      }
+
+      .examples-section {
+        background: var(--bg-primary);
+      }
+
+      .summary-section {
+        background: var(--bg-secondary);
+      }
+
+      .agreement-section {
+        background: var(--bg-primary);
+      }
+
+      .note-text {
+        font-style: normal;
+        color: var(--text-tertiary);
+        margin-top: 24px;
+        padding: 20px;
+        background: var(--bg-secondary);
+        border-radius: 0;
+        font-size: 0.9rem;
+        border-left: 2px solid var(--border-color);
+      }
+
+      footer {
+        background: var(--text-primary);
+        color: white;
+        text-align: center;
+        padding: 60px 40px;
+        font-size: 0.9rem;
+        border-top: none;
+      }
+
+      footer p {
+        margin: 0;
+        color: white;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header {
+          padding: 60px 24px 40px;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 40px 24px;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .rules-grid {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .rule-section {
+          padding: 40px 24px;
+        }
+
+        table {
+          font-size: 0.9rem;
+        }
+
+        th,
+        td {
+          padding: 12px 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 40px 20px 30px;
+        }
+
+        header h1 {
+          font-size: 1.75rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        section {
+          padding: 32px 20px;
+        }
+
+        .rule-section {
+          padding: 32px 20px;
+        }
+
+        table {
+          font-size: 0.85rem;
+        }
+
+        th,
+        td {
+          padding: 10px 6px;
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Additional Styles */
+      strong {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      em {
+        font-style: italic;
+        color: var(--text-secondary);
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+        }
+
+        .rule-btn {
+          page-break-inside: avoid;
+        }
+
+        .rule-section {
+          display: block !important;
+          page-break-before: always;
+        }
+      }
+
+      /* Smooth transitions */
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--primary-color);
+      }
+
+      button {
+        outline: none;
+      }
+
+      button:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+      }
+
+      /* Active rule button state */
+      .rule-btn.active {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      .rule-btn.active .rule-number {
+        background: white;
+        color: var(--primary-color);
+      }
+
+      .rule-btn.active .rule-title {
+        color: white;
+      }
+
+      /* French text with translation tooltips */
+      .french-text {
+        position: relative;
+        cursor: help;
+        border-bottom: none;
+        transition: all 0.2s ease;
+      }
+
+      .french-text:hover {
+        color: var(--primary-color);
+      }
+
+      .tooltip {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-5px);
+        background: var(--text-primary);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        z-index: 1000;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 6px solid transparent;
+        border-top-color: var(--text-primary);
+      }
+
+      .french-text:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(-8px);
+      }
+
+      /* Theme Toggle Button */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--text-primary);
+        border: 2px solid var(--text-secondary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        transition: all 0.2s ease;
+        z-index: 9999;
+      }
+
+      .theme-toggle:hover {
+        background: var(--text-primary);
+        color: white;
+        border-color: var(--text-primary);
+      }
+
+      .theme-toggle:active {
+        transform: scale(0.95);
+      }
+
+      /* Light Mode Theme */
+      body.light-mode {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f3f4f6;
+      }
+
+      body.light-mode .theme-toggle {
+        border: none;
+      }
+
+      body.light-mode .theme-toggle:hover {
+        border: none;
+      }
+
+      /* Dark Mode Theme */
+      body.dark-mode {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #e5e5e5;
+        --text-secondary: #b0b0b0;
+        --border-color: #404040;
+        --hover-bg: #2d2d2d;
+      }
+
+      body.dark-mode section {
+        background-color: #1a1a1a;
+      }
+
+      body.dark-mode .theme-toggle {
+        border: 1px solid var(--text-secondary);
+      }
+
+      body.dark-mode .theme-toggle:hover {
+        background: var(--text-primary);
+        color: #1a1a1a;
+        border-color: var(--text-primary);
+      }
+
+      body.dark-mode table {
+        background: #2d2d2d;
+      }
+
+      body.dark-mode th {
+        background-color: #3a3a3a !important;
+      }
+
+      body.dark-mode tr:nth-child(even) {
+        background-color: #252525 !important;
+      }
+
+      body.dark-mode tr:nth-child(odd) {
+        background-color: #2d2d2d !important;
+      }
+
+      body.dark-mode .tip-box,
+      body.dark-mode .note-box,
+      body.dark-mode .exception-box {
+        background-color: #2a2a3a;
+        border-left-color: #4a90e2;
+      }
+
+      body.dark-mode .highlight-section {
+        background-color: #252525;
+      }
+    </style>
   </head>
   <body>
     <button class="theme-toggle" id="themeToggle" title="Toggle reading mode">
@@ -50,7 +818,7 @@
               <strong>des chats</strong>
             </li>
             <li>
-              <strong>la table</strong> 
+              <strong>la table</strong>
               <strong>les tables</strong>
             </li>
           </ul>
@@ -349,9 +1117,36 @@
               <strong>z</strong> sound to connect the words smoothly.
             </p>
             <ul>
-              <li><strong>Les</strong> = "lay" → with liaison: "lay-z"</li>
-              <li><strong>Mes</strong> = "may" → with liaison: "may-z"</li>
-              <li><strong>Des</strong> = "day" → with liaison: "day-z"</li>
+              <li>
+                <strong>Les</strong> = "lay" → with liaison: "lay-z"
+                <button
+                  class="audio-btn-inline"
+                  onclick="speakFrench('Les amis')"
+                  title="Play audio"
+                >
+                  <i class="fas fa-volume-up"></i>
+                </button>
+              </li>
+              <li>
+                <strong>Mes</strong> = "may" → with liaison: "may-z"
+                <button
+                  class="audio-btn-inline"
+                  onclick="speakFrench('Mes enfants')"
+                  title="Play audio"
+                >
+                  <i class="fas fa-volume-up"></i>
+                </button>
+              </li>
+              <li>
+                <strong>Des</strong> = "day" → with liaison: "day-z"
+                <button
+                  class="audio-btn-inline"
+                  onclick="speakFrench('Des idées')"
+                  title="Play audio"
+                >
+                  <i class="fas fa-volume-up"></i>
+                </button>
+              </li>
             </ul>
 
             <div class="table-responsive">
@@ -365,23 +1160,68 @@
                 <tbody>
                   <tr>
                     <td>L'ami</td>
-                    <td>Les amis</td>
+                    <td>
+                      <span class="french-word">Les amis</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Les amis')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Mon enfant</td>
-                    <td>Mes enfants</td>
+                    <td>
+                      <span class="french-word">Mes enfants</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Mes enfants')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Une idée</td>
-                    <td>Des idées</td>
+                    <td>
+                      <span class="french-word">Des idées</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des idées')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Le village</td>
-                    <td>Les villages</td>
+                    <td>
+                      <span class="french-word">Les villages</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Les villages')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Le chapeau</td>
-                    <td>Les chapeaux</td>
+                    <td>
+                      <span class="french-word">Les chapeaux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Les chapeaux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -1001,6 +1841,319 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+      // Theme Toggle Function
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = localStorage.getItem("theme") || "warm";
+
+        // Remove all theme classes first
+        body.classList.remove("light-mode", "dark-mode");
+
+        // Cycle through themes: warm → light → dark → warm
+        if (currentTheme === "warm") {
+          body.classList.add("light-mode");
+          localStorage.setItem("theme", "light");
+        } else if (currentTheme === "light") {
+          body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+        } else {
+          // dark mode, go back to warm
+          localStorage.setItem("theme", "warm");
+        }
+      }
+
+      // Rule navigation function
+      function showRule(ruleNumber) {
+        // Hide all rule sections
+        const allRules = document.uickuerySelectorAll(".rule-section");
+        allRules.forEach((rule) => {
+          rule.classList.remove("active");
+        });
+
+        // Show the selected rule
+        const selectedRule = document.getElementById(`rule-${ruleNumber}`);
+        if (selectedRule) {
+          selectedRule.classList.add("active");
+          selectedRule.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        // Update button states
+        const allButtons = document.querySelectorAll(".rule-btn");
+        allButtons.forEach((btn, index) => {
+          if (index + 1 === ruleNumber) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      // Text-to-Speech function for French words
+      function speakFrench(text) {
+        // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "fr-FR"; // French language
+        utterance.rate = 0.8; // Slightly slower for learning
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        // Try to use a French voice if available
+        const voices = window.speechSynthesis.getVoices();
+        const frenchVoice = voices.find((voice) => voice.lang.startsWith("fr"));
+        if (frenchVoice) {
+          utterance.voice = frenchVoice;
+        }
+
+        window.speechSynthesis.speak(utterance);
+      }
+
+      // Load voices (some browsers need this)
+      window.speechSynthesis.onvoiceschanged = function () {
+        window.speechSynthesis.getVoices();
+      };
+
+      // Translation dictionary for French to English
+      const translations = {
+        "un chat": "a cat",
+        "des chats": "cats",
+        "une pomme": "an apple",
+        "des pommes": "apples",
+        "le livre": "the book",
+        "les livres": "the books",
+        "la table": "the table",
+        "les tables": "the tables",
+        "un cheval": "a horse",
+        "des chevaux": "horses",
+        "la maison": "the house",
+        "les maisons": "the houses",
+        "un choix": "a choice",
+        "des choix": "choices",
+        "un nez": "a nose",
+        "des nez": "noses",
+        "un fils": "a son",
+        "des fils": "sons",
+        "un tableau": "a painting/board",
+        "des tableaux": "paintings/boards",
+        "un gâteau": "a cake",
+        "des gâteaux": "cakes",
+        "un jeu": "a game",
+        "des jeux": "games",
+        "un animal": "an animal",
+        "des animaux": "animals",
+        "un journal": "a newspaper",
+        "des journaux": "newspapers",
+        "un bijou": "a jewel",
+        "des bijoux": "jewels",
+        "un caillou": "a pebble",
+        "des cailloux": "pebbles",
+        "un chou": "a cabbage",
+        "des choux": "cabbages",
+        "un genou": "a knee",
+        "des genoux": "knees",
+        "un hibou": "an owl",
+        "des hiboux": "owls",
+        "un joujou": "a toy",
+        "des joujoux": "toys",
+        "un pou": "a louse",
+        "des poux": "lice",
+        "les chats": "the cats",
+        "des livres": "(some) books",
+        "des fruits": "(some) fruits",
+        "grandes maisons": "big houses",
+        "les enfants jouent": "the children are playing",
+        "ces chaises": "these chairs",
+        "ses amis": "his/her friends",
+        "ils parlent": "they are speaking",
+        "je les vois": "I see them",
+        "aux filles": "to the girls",
+        "des garçons": "(some) boys",
+        "L'ami": "the friend",
+        "Les amis": "the friends",
+        "Mon enfant": "my child",
+        "Mes enfants": "my children",
+        "Une idée": "an idea",
+        "Des idées": "(some) ideas",
+        "Le village": "the village",
+        "Les villages": "the villages",
+        "Le chapeau": "the hat",
+        "Les chapeaux": "the hats",
+        "un festival": "a festival",
+        "des festivals": "festivals",
+        bleu: "blue",
+        bleus: "blues",
+        pneu: "tire",
+        pneus: "tires",
+      };
+
+      // Initialize: Show the first rule by default
+
+      // Add keyboard navigation
+
+      // Add hover effects to table rows
+
+      // Function to update progress bar (optional enhancement)
+      function updateProgressBar(percentage) {
+        // This can be used to add a progress indicator at the top of the page
+        // For now, it's a placeholder for future enhancement
+        console.log(`Scroll progress: ${percentage.toFixed(2)}%`);
+      }
+
+      // Function to highlight search terms (optional enhancement)
+      function highlightText(searchTerm) {
+        const content = document.querySelector(".container");
+        const innerHTML = content.innerHTML;
+        const searchRegex = new RegExp(searchTerm, "gi");
+
+        if (searchTerm.length > 2) {
+          const newHTML = innerHTML.replace(
+            searchRegex,
+            (match) => `<mark>${match}</mark>`,
+          );
+          content.innerHTML = newHTML;
+        }
+      }
+
+      // Add print functionality
+      function printPage() {
+        window.print();
+      }
+
+      // Export to PDF functionality (requires additional library in production)
+      function exportToPDF() {
+        alert(
+          "PDF export feature coming soon! For now, you can use your browser's print function to save as PDF.",
+        );
+        window.print();
+      }
+
+      // Toggle dark mode (optional enhancement for future)
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem(
+          "darkMode",
+          document.body.classList.contains("dark-mode"),
+        );
+      }
+
+      // Load dark mode preference
+      if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+      }
+
+      // Add translation tooltips to French text
+      function addTranslationTooltips() {
+        // Find all french-word spans first
+        const frenchWordSpans = document.querySelectorAll(".french-word");
+
+        frenchWordSpans.forEach((span) => {
+          const text = span.textContent.trim();
+
+          // Check if the text exists in our translations (case-insensitive)
+          const translationKey = Object.keys(translations).find(
+            (key) => key.toLowerCase() === text.toLowerCase(),
+          );
+
+          if (translationKey) {
+            // Add hover attributes and class
+            span.classList.add("french-text");
+            span.setAttribute("data-translation", translations[translationKey]);
+
+            // Create tooltip element
+            const tooltip = document.createElement("span");
+            tooltip.className = "tooltip";
+            tooltip.textContent = translations[translationKey];
+            span.appendChild(tooltip);
+          }
+        });
+
+        // Find all table cells (for tables without french-word spans)
+        const tableCells = document.querySelectorAll("td");
+
+        tableCells.forEach((cell) => {
+          // Skip cells that have audio buttons or already processed french-word spans
+          if (
+            cell.querySelector(".audio-btn-inline") ||
+            cell.querySelector(".french-word")
+          ) {
+            return;
+          }
+
+          const text = cell.textContent.trim();
+
+          // Check if the text exists in our translations (case-insensitive)
+          const translationKey = Object.keys(translations).find(
+            (key) => key.toLowerCase() === text.toLowerCase(),
+          );
+
+          if (translationKey) {
+            // Add hover attributes and class
+            cell.classList.add("french-text");
+            cell.setAttribute("data-translation", translations[translationKey]);
+
+            // Create tooltip element
+            const tooltip = document.createElement("span");
+            tooltip.className = "tooltip";
+            tooltip.textContent = translations[translationKey];
+            cell.appendChild(tooltip);
+          }
+        });
+
+        // Also add to inline French text in paragraphs and lists
+        const textElements = document.querySelectorAll("p, li");
+        textElements.forEach((element) => {
+          let html = element.innerHTML;
+
+          // Look for French text in <strong> or <em> tags
+          Object.keys(translations).forEach((french) => {
+            const regex = new RegExp(
+              `<(strong|em)>\\s*${escapeRegex(french)}\\s*<\/(strong|em)>`,
+              "gi",
+            );
+            const match = html.match(regex);
+
+            if (match) {
+              const replacement = `<$1 class="french-text" data-translation="${translations[french]}">${french}<span class="tooltip">${translations[french]}</span></$1>`;
+              html = html.replace(regex, replacement);
+            }
+          });
+
+          element.innerHTML = html;
+        });
+      }
+
+      // Escape special characters for regex
+      function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      // Initialize page on load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add translation tooltips
+        addTranslationTooltips();
+
+        // Set first rule button as active
+        const firstButton = document.querySelector(".rule-btn");
+        if (firstButton) {
+          firstButton.classList.add("active");
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem("theme") || "warm";
+        if (savedTheme === "light") {
+          document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+
+        // Add theme toggle button listener
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", toggleTheme);
+        }
+      });
+    </script>
   </body>
 </html>
