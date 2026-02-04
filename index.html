@@ -7,1216 +7,85 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <style>
-      :root {
-        /* Original warm color scheme */
-        --primary-color: #2563eb;
-        --accent-color: #3b82f6;
-        --text-primary: #3d2817;
-        --text-secondary: #5d4a3a;
-        --text-tertiary: #9ca3af;
-        --text-marron: #5b342e;
-        --bg-primary: #f9f5f0;
-        --bg-secondary: #f3ede6;
-        --bg-card: #ffffff;
-        --border-color: #e5e7eb;
-        --hover-bg: #f9fafb;
-        --bg-neutral: #f9fafb;
-
-        /* Improved shadows */
-        --border-radius: 16px;
-        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-
-        --header-color: #ffa90a;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "DM Sans",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        line-height: 1.7;
-        color: var(--text-primary);
-        background: var(--bg-primary);
-        min-height: 100vh;
-        padding: 0;
-        font-weight: 400;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-      }
-
-      .container {
-        margin: 0 auto;
-        background: transparent;
-        padding: 0 20px;
-        max-width: 1200px;
-      }
-
-      header {
-        padding: 80px 40px 60px;
-        text-align: left;
-        border-bottom: none;
-        background: transparent;
-        position: relative;
-        margin-bottom: 20px;
-      }
-
-      header h1 {
-        font-size: 3rem;
-        margin-bottom: 16px;
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        color: var(--text-primary);
-        line-height: 1.2;
-      }
-
-      .subtitle {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        font-weight: 400;
-        max-width: 600px;
-        line-height: 1.6;
-      }
-
-      section {
-        padding: 50px 40px;
-        border-bottom: none;
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-        margin-bottom: 36px;
-        color: var(--text-marron);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        text-align: left;
-        position: relative;
-        padding-bottom: 12px;
-      }
-
-      h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 4px;
-        background: var(--header-color);
-        border-radius: 2px;
-      }
-
-      h3 {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        color: var(--text-primary);
-        font-weight: 600;
-        letter-spacing: -0.01em;
-      }
-
-      h4 {
-        font-size: 1rem;
-        margin-bottom: 12px;
-        color: var(--text-primary);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-size: 0.85rem;
-      }
-
-      p {
-        margin-bottom: 16px;
-        color: var(--text-secondary);
-        line-height: 1.7;
-        font-size: 1rem;
-      }
-
-      .info-box {
-        background: var(--bg-card);
-        box-shadow: var(--shadow-md);
-        padding: 28px;
-        border-radius: var(--border-radius);
-        margin-bottom: 28px;
-        border: 1px solid var(--border-color);
-      }
-
-      .tip-box {
-        background: #eff6ff;
-        border-left: 4px solid var(--primary-color);
-      }
-
-      .note-box {
-        background: #ffffff;
-      }
-
-      .exception-box {
-        background: #fee2e2;
-        border-left: 4px solid #ef4444;
-      }
-
-      .highlight {
-        background: #fef3c7;
-        padding: 12px 16px;
-        font-weight: 500;
-        border-radius: 12px;
-        display: inline-block;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid #fbbf24;
-      }
-
-      ul {
-        margin-left: 24px;
-        margin-bottom: 20px;
-      }
-
-      li {
-        margin-bottom: 10px;
-        color: var(--text-secondary);
-      }
-
-      .table-responsive {
-        overflow-x: auto;
-        margin: 32px 0;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        border-radius: 15px;
-      }
-
-      .table-responsive::-webkit-scrollbar {
-        display: none;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        background: var(--bg-card);
-        border: none;
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        box-shadow: var(--shadow-md);
-      }
-
-      thead {
-        background: hsl(39, 100%, 66%);
-        border-bottom: none;
-      }
-
-      thead tr:first-child th:first-child {
-        border-top-left-radius: 12px;
-      }
-
-      thead tr:first-child th:last-child {
-        border-top-right-radius: 12px;
-      }
-
-      tbody tr:last-child td:first-child {
-        border-bottom-left-radius: 12px;
-      }
-
-      tbody tr:last-child td:last-child {
-        border-bottom-right-radius: 12px;
-      }
-
-      td {
-        padding: 20px 24px;
-        border-bottom: 1px solid var(--border-color);
-        border-right: 1px solid var(--border-color);
-        color: var(--text-secondary);
-        font-size: 1rem;
-        vertical-align: middle;
-        text-align: center;
-      }
-
-      td:last-child {
-        border-right: none;
-      }
-
-      th {
-        padding: 20px 24px;
-        text-align: center;
-        font-weight: 600;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-primary);
-        border-right: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      th:last-child {
-        border-right: none;
-      }
-
-      .audio-cell {
-        width: 40px;
-        padding: 8px;
-        text-align: center;
-      }
-
-      .french-word {
-        display: inline-block;
-        min-width: 120px;
-      }
-
-      tbody tr:nth-child(odd) {
-        background: #fffbeb;
-      }
-
-      tbody tr:nth-child(even) {
-        background: white;
-      }
-
-      tbody tr:last-child td {
-        border-bottom: none;
-      }
-
-      .audio-btn {
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 0;
-        cursor: pointer;
-
-        transition: all 0.2s ease;
-        font-size: 0.85rem;
-        margin: 2px;
-      }
-
-      .audio-btn:first-child {
-        margin-left: 0;
-      }
-
-      td:has(.audio-btn) {
-        white-space: nowrap;
-      }
-
-      .audio-btn:active {
-        transform: scale(0.95);
-      }
-
-      .audio-btn i {
-        pointer-events: none;
-      }
-
-      .audio-btn-inline {
-        background: transparent;
-        color: #ec4899;
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 0.9rem;
-        vertical-align: middle;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .audio-btn-inline:hover {
-        color: #db2777;
-        transform: scale(1.15);
-      }
-
-      .audio-btn-inline:active {
-        transform: scale(0.95);
-      }
-
-      .audio-btn-inline i {
-        pointer-events: none;
-      }
-
-      td {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      .rules-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 16px;
-        margin: 32px 0;
-      }
-
-      .rule-btn {
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        padding: 24px 16px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        font-family: inherit;
-      }
-
-      .rule-btn:hover {
-        border-color: var(--primary-color);
-        background: var(--bg-secondary);
-      }
-
-      .rule-number {
-        width: 40px;
-        height: 40px;
-        background: var(--primary-color);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
-      .rule-title {
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: var(--text-secondary);
-        text-align: center;
-        line-height: 1.4;
-      }
-
-      .rule-section {
-        display: block;
-        padding: 40px 40px;
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .rule-card {
-        background: var(--bg-card);
-        padding: 32px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--border-color);
-      }
-
-      .rule-badge {
-        background: var(--text-primary);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        margin-right: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        display: inline-block;
-      }
-
-      .rule-description {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        margin-bottom: 24px;
-        font-weight: 400;
-      }
-
-      .next-btn {
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 16px 40px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        margin-top: 40px;
-        font-family: inherit;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .next-btn:hover {
-        background: var(--accent-color);
-      }
-
-      .next-btn:active {
-        transform: translateY(1px);
-      }
-
-      .examples-section {
-        background: var(--bg-primary);
-      }
-
-      .summary-section {
-        background: var(--bg-secondary);
-      }
-
-      .agreement-section {
-        background: var(--bg-primary);
-      }
-
-      .note-text {
-        font-style: normal;
-        color: var(--text-tertiary);
-        margin-top: 24px;
-        padding: 20px;
-        background: var(--bg-secondary);
-        border-radius: 0;
-        font-size: 0.9rem;
-        border-left: 2px solid var(--border-color);
-      }
-
-      footer {
-        background: var(--text-primary);
-        color: white;
-        text-align: center;
-        padding: 60px 40px;
-        font-size: 0.9rem;
-        border-top: none;
-      }
-
-      footer p {
-        margin: 0;
-        color: white;
-        font-weight: 400;
-        letter-spacing: 0.05em;
-      }
-
-      /* Listening Practice Section */
-      .listening-section {
-        padding: 60px 40px 80px;
-        background: var(--bg-primary);
-      }
-
-      .listening-card {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: #fef8f0;
-        border: 3px solid #d4a574;
-        border-radius: 24px;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 0;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      }
-
-      .listening-content {
-        padding: 40px 48px;
-      }
-
-      .audio-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 16px 24px;
-        background: #f5e6d3;
-        border: 2px solid #d4a574;
-        border-radius: 50px;
-        margin-bottom: 32px;
-      }
-
-      .main-play-btn {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
-        border: none;
-        color: white;
-        font-size: 1.2rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        flex-shrink: 0;
-      }
-
-      .main-play-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
-      }
-
-      .audio-info {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        flex: 1;
-      }
-
-      .speed-display {
-        font-size: 0.9rem;
-        color: #6b5a47;
-        font-weight: 500;
-        min-width: 40px;
-      }
-
-      .progress-bar {
-        flex: 1;
-        height: 6px;
-        background: #e0d0bf;
-        border-radius: 3px;
-        overflow: hidden;
-      }
-
-      .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #d4a574 0%, #b8935f 100%);
-        width: 45%;
-        border-radius: 3px;
-        transition: width 0.3s ease;
-      }
-
-      .refresh-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: transparent;
-        border: none;
-        color: #6b5a47;
-        font-size: 1rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-      }
-
-      .refresh-btn:hover {
-        background: #e0d0bf;
-        transform: rotate(180deg);
-      }
-
-      .story-title {
-        color: #8b2b2b;
-        font-size: 1.8rem;
-        margin-bottom: 24px;
-        font-weight: 600;
-      }
-
-      .story-text-box {
-        background: transparent;
-        padding: 0;
-        border-radius: 0;
-        margin-bottom: 28px;
-      }
-
-      .story-sentence {
-        margin-bottom: 20px;
-        line-height: 1.7;
-        padding: 12px;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-      }
-
-      .story-sentence.active {
-        background: linear-gradient(90deg, #fff5e6 0%, #ffe8cc 100%);
-        border-left: 4px solid #d4a574;
-        padding-left: 16px;
-      }
-
-      .story-sentence:last-child {
-        margin-bottom: 0;
-      }
-
-      .french-sentence {
-        color: #2d1f1a;
-        font-weight: 500;
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.05rem;
-      }
-
-      .story-text-box .translation {
-        color: #7a6a5a;
-        font-size: 0.9rem;
-        font-style: normal;
-        display: block;
-      }
-
-      .listening-image {
-        position: relative;
-        overflow: hidden;
-        border-left: 3px solid #d4a574;
-      }
-
-      .listening-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .listening-controls {
-        display: none;
-      }
-
-      /* Dark mode styles for listening section */
-      body.dark-mode .listening-card {
-        background: #2d2520;
-        border-color: #6b5a47;
-      }
-
-      body.dark-mode .audio-header {
-        background: #3a302a;
-        border-color: #6b5a47;
-      }
-
-      body.dark-mode .progress-bar {
-        background: #4a3f38;
-      }
-
-      body.dark-mode .story-title {
-        color: #d4a574;
-      }
-
-      body.dark-mode .speed-display,
-      body.dark-mode .refresh-btn {
-        color: #d4a574;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        header {
-          padding: 60px 24px 40px;
-        }
-
-        header h1 {
-          font-size: 2rem;
-        }
-
-        section {
-          padding: 40px 24px;
-        }
-
-        h2 {
-          font-size: 1.5rem;
-        }
-
-        .rules-grid {
-          grid-template-columns: 1fr;
-          gap: 8px;
-        }
-
-        .rule-section {
-          padding: 40px 24px;
-        }
-
-        table {
-          font-size: 0.9rem;
-        }
-
-        th,
-        td {
-          padding: 12px 8px;
-        }
-
-        .listening-section {
-          padding: 40px 24px;
-        }
-
-        .listening-card {
-          grid-template-columns: 1fr;
-        }
-
-        .listening-content {
-          padding: 32px 24px;
-        }
-
-        .listening-image {
-          height: 250px;
-          border-left: none;
-          border-top: 3px solid #d4a574;
-        }
-
-        .audio-header {
-          padding: 12px 16px;
-        }
-
-        .main-play-btn {
-          width: 40px;
-          height: 40px;
-          font-size: 1rem;
-        }
-
-        .story-title {
-          font-size: 1.4rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        header {
-          padding: 40px 20px 30px;
-        }
-
-        header h1 {
-          font-size: 1.75rem;
-        }
-
-        .subtitle {
-          font-size: 1rem;
-        }
-
-        section {
-          padding: 32px 20px;
-        }
-
-        .rule-section {
-          padding: 32px 20px;
-        }
-
-        table {
-          font-size: 0.85rem;
-        }
-
-        th,
-        td {
-          padding: 10px 6px;
-          font-size: 0.8rem;
-        }
-      }
-
-      /* Additional Styles */
-      strong {
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-
-      em {
-        font-style: italic;
-        color: var(--text-secondary);
-      }
-
-      /* Print Styles */
-      @media print {
-        body {
-          background: white;
-          padding: 0;
-        }
-
-        .container {
-          box-shadow: none;
-        }
-
-        .rule-btn {
-          page-break-inside: avoid;
-        }
-
-        .rule-section {
-          display: block !important;
-          page-break-before: always;
-        }
-      }
-
-      /* Smooth transitions */
-      a {
-        color: var(--accent-color);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      a:hover {
-        color: var(--primary-color);
-      }
-
-      button {
-        outline: none;
-      }
-
-      button:focus {
-        outline: 2px solid var(--primary-color);
-        outline-offset: 2px;
-      }
-
-      /* Active rule button state */
-      .rule-btn.active {
-        background: var(--primary-color);
-        border-color: var(--primary-color);
-      }
-
-      .rule-btn.active .rule-number {
-        background: white;
-        color: var(--primary-color);
-      }
-
-      .rule-btn.active .rule-title {
-        color: white;
-      }
-
-      /* French text with translation tooltips */
-      .french-text {
-        position: relative;
-        cursor: help;
-        border-bottom: none;
-        transition: all 0.2s ease;
-      }
-
-      .french-text:hover {
-        color: var(--primary-color);
-      }
-
-      .tooltip {
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-5px);
-        background: var(--text-primary);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 0.85rem;
-        white-space: nowrap;
-        z-index: 1000;
-        pointer-events: none;
-        transition: all 0.2s ease;
-        font-weight: 500;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      .tooltip::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 6px solid transparent;
-        border-top-color: var(--text-primary);
-      }
-
-      .french-text:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-        transform: translateX(-50%) translateY(-8px);
-      }
-
-      /* Theme Toggle Button */
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
-        background: transparent;
-        color: var(--text-primary);
-        border: 2px solid var(--text-secondary);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        transition: all 0.2s ease;
-        z-index: 9999;
-      }
-
-      .theme-toggle:hover {
-        background: var(--text-primary);
-        color: white;
-        border-color: var(--text-primary);
-      }
-
-      .theme-toggle:active {
-        transform: scale(0.95);
-      }
-
-      /* Light Mode Theme */
-      body.light-mode {
-        --bg-primary: #ffffff;
-        --bg-secondary: #f3f4f6;
-      }
-
-      body.light-mode .theme-toggle {
-        border: none;
-      }
-
-      body.light-mode .theme-toggle:hover {
-        border: none;
-      }
-
-      /* Dark Mode Theme */
-      body.dark-mode {
-        --bg-primary: #1a1a1a;
-        --bg-secondary: #2d2d2d;
-        --text-primary: #e5e5e5;
-        --text-secondary: #b0b0b0;
-        --border-color: #404040;
-        --hover-bg: #2d2d2d;
-      }
-
-      body.dark-mode section {
-        background-color: #1a1a1a;
-      }
-
-      body.dark-mode .theme-toggle {
-        border: 1px solid var(--text-secondary);
-      }
-
-      body.dark-mode .theme-toggle:hover {
-        background: var(--text-primary);
-        color: #1a1a1a;
-        border-color: var(--text-primary);
-      }
-
-      body.dark-mode table {
-        background: #2d2d2d;
-      }
-
-      body.dark-mode th {
-        background-color: #3a3a3a !important;
-      }
-
-      body.dark-mode tr:nth-child(even) {
-        background-color: #252525 !important;
-      }
-
-      body.dark-mode tr:nth-child(odd) {
-        background-color: #2d2d2d !important;
-      }
-
-      body.dark-mode .tip-box,
-      body.dark-mode .note-box,
-      body.dark-mode .exception-box {
-        background-color: #2a2a3a;
-        border-left-color: #4a90e2;
-      }
-
-      body.dark-mode .highlight-section {
-        background-color: #252525;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button class="theme-toggle" id="themeToggle" title="Toggle reading mode">
-      <i class="fas fa-adjust"></i>
-    </button>
-    <div class="container">
-      <header>
-        <h1>🇫🇷 French Plurals (Pluriels)</h1>
-        <p class="subtitle">Master the art of making French nouns plural</p>
-      </header>
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc-sidebar">
+      <h2 class="toc-title">Table of Contents</h2>
+      <ul class="toc-list">
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#quick-examples">Quick Examples</a></li>
+        <li><a href="#rule-1">Rule 1: Add -s</a></li>
+        <li><a href="#rule-2">Rule 2: -s, -x, -z stay same</a></li>
+        <li><a href="#rule-3">Rule 3: -eau, -au, -eu + x</a></li>
+        <li><a href="#rule-4">Rule 4: -al → -aux</a></li>
+        <li><a href="#rule-5">Rule 5: Irregular plurals</a></li>
+        <li><a href="#listening-practice">Listening Practice</a></li>
+      </ul>
+    </aside>
 
-      <section class="intro-section">
-        <div class="info-box">
-          <h2>Introduction</h2>
-          <p>
-            In English, making plurals is usually very simple. Most of the time,
-            you just add an -s, like <em>cat</em> becoming <em>cats</em>.
-          </p>
-          <p>
-            In French, most nouns also form the plural by adding an -s, but
-            there are a few important things to notice. The pronunciation often
-            does not change. For example, <strong>chat</strong> and
-            <strong>chats</strong> sound the same. This means you often
-            <em>see</em> the plural more than you <em>hear</em> it.
-          </p>
-          <p>
-            You also need to remember to change the article when a noun becomes
-            plural:
-          </p>
-          <ul>
-            <li>
-              <strong>un chat</strong>
-              <strong>des chats</strong>
-            </li>
-            <li>
-              <strong>la table</strong>
-              <strong>les tables</strong>
-            </li>
-          </ul>
-          <p class="highlight">
-            So, in French, plural forms are mostly about spelling and using the
-            correct article, not always about how the word sounds. Paying
-            attention to these small letters is very important in French.
-          </p>
-        </div>
-      </section>
+    <!-- Main Content -->
+    <div class="main-content">
+      <button class="theme-toggle" id="themeToggle" title="Toggle reading mode">
+        <i class="fas fa-adjust"></i>
+      </button>
+      <div class="container">
+        <header>
+          <h1>🇫🇷 French Plurals (Pluriels)</h1>
+          <p class="subtitle">Master the art of making French nouns plural</p>
+        </header>
 
-      <section class="examples-section">
-        <h2>Quick Examples</h2>
-        <div class="table-responsive">
-          <table class="examples-table">
-            <thead>
-              <tr class="col-header">
-                <th>French Singular</th>
-                <th>French Plural</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span class="french-word">un chat</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('un chat')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">des chats</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('des chats')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="french-word">une pomme</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('une pomme')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">des pommes</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('des pommes')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="french-word">le livre</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('le livre')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">les livres</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('les livres')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="french-word">la table</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('la table')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">les tables</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('les tables')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="french-word">un cheval</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('un cheval')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">des chevaux</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('des chevaux')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="french-word">la maison</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('la maison')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-                <td>
-                  <span class="french-word">les maisons</span>
-                  <button
-                    class="audio-btn-inline"
-                    onclick="speakFrench('les maisons')"
-                    title="Play audio"
-                  >
-                    <i class="fas fa-volume-up"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+        <section id="intro" class="intro-section">
+          <div class="info-box">
+            <h2>Introduction</h2>
+            <p>
+              In English, making plurals is usually very simple. Most of the
+              time, you just add an -s, like <em>cat</em> becoming
+              <em>cats</em>.
+            </p>
+            <p>
+              In French, most nouns also form the plural by adding an -s, but
+              there are a few important things to notice. The pronunciation
+              often does not change. For example, <strong>chat</strong> and
+              <strong>chats</strong> sound the same. This means you often
+              <em>see</em> the plural more than you <em>hear</em> it.
+            </p>
+            <p>
+              You also need to remember to change the article when a noun
+              becomes plural:
+            </p>
+            <ul>
+              <li>
+                <strong>un chat</strong>
+                <strong>des chats</strong>
+              </li>
+              <li>
+                <strong>la table</strong>
+                <strong>les tables</strong>
+              </li>
+            </ul>
+            <p class="highlight">
+              So, in French, plural forms are mostly about spelling and using
+              the correct article, not always about how the word sounds. Paying
+              attention to these small letters is very important in French.
+            </p>
+          </div>
+        </section>
 
-      <div id="rule-1" class="rule-section active">
-        <div class="rule-card">
-          <h3>
-            <span class="rule-badge">Rule 1</span> Most nouns form the plural by
-            adding "-s"
-          </h3>
-          <p class="rule-description">
-            Just add <strong>–s</strong> to the end of the word.
-          </p>
-
+        <section id="quick-examples" class="examples-section">
+          <h2>Quick Examples</h2>
           <div class="table-responsive">
-            <table class="rule-table">
+            <table class="examples-table">
               <thead>
-                <tr>
+                <tr class="col-header">
                   <th>French Singular</th>
                   <th>French Plural</th>
                 </tr>
@@ -1310,86 +179,90 @@
                     </button>
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <span class="french-word">un cheval</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('un cheval')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">des chevaux</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('des chevaux')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="french-word">la maison</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('la maison')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="french-word">les maisons</span>
+                    <button
+                      class="audio-btn-inline"
+                      onclick="speakFrench('les maisons')"
+                      title="Play audio"
+                    >
+                      <i class="fas fa-volume-up"></i>
+                    </button>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
+        </section>
 
-          <div class="info-box tip-box">
-            <h4>💡 Key Points</h4>
-            <p>
-              See those <strong>"les"</strong> and
-              <strong>"des"</strong> popping up everywhere? It's simple. When a
-              noun becomes plural, <em>le</em> and <em>la</em> change to
-              <strong>les</strong>, and <em>un</em> and <em>une</em> become
-              <strong>des</strong>. That's all there is to it.
+        <div id="rule-1" class="rule-section active">
+          <div class="rule-card">
+            <h3>
+              <span class="rule-badge">Rule 1</span> Most nouns form the plural
+              by adding "-s"
+            </h3>
+            <p class="rule-description">
+              Just add <strong>–s</strong> to the end of the word.
             </p>
-            <p>
-              Your definite and indefinite articles have simply become plural.
-            </p>
-          </div>
-
-          <div class="info-box note-box">
-            <h4>📝 Note: Liaison</h4>
-            <p>
-              The final <strong>-s</strong> in plural nouns is usually silent
-              when speaking. However, when a plural word ending in a silent -s
-              is followed by a word that begins with a vowel (a, e, i, o, u, y)
-              or a silent "h", a sound link can happen. This is called
-              <strong>liaison</strong>.
-            </p>
-            <p>
-              In liaison, the silent -s is pronounced like a
-              <strong>z</strong> sound to connect the words smoothly.
-            </p>
-            <ul>
-              <li>
-                <strong>Les</strong> = "lay" → with liaison: "lay-z"
-                <button
-                  class="audio-btn-inline"
-                  onclick="speakFrench('Les amis')"
-                  title="Play audio"
-                >
-                  <i class="fas fa-volume-up"></i>
-                </button>
-              </li>
-              <li>
-                <strong>Mes</strong> = "may" → with liaison: "may-z"
-                <button
-                  class="audio-btn-inline"
-                  onclick="speakFrench('Mes enfants')"
-                  title="Play audio"
-                >
-                  <i class="fas fa-volume-up"></i>
-                </button>
-              </li>
-              <li>
-                <strong>Des</strong> = "day" → with liaison: "day-z"
-                <button
-                  class="audio-btn-inline"
-                  onclick="speakFrench('Des idées')"
-                  title="Play audio"
-                >
-                  <i class="fas fa-volume-up"></i>
-                </button>
-              </li>
-            </ul>
 
             <div class="table-responsive">
-              <table class="liaison-table">
+              <table class="rule-table">
                 <thead>
                   <tr>
-                    <th>Singular Form</th>
-                    <th>Plural Phrase (with liaison)</th>
+                    <th>French Singular</th>
+                    <th>French Plural</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>L'ami</td>
                     <td>
-                      <span class="french-word">Les amis</span>
+                      <span class="french-word">un chat</span>
                       <button
                         class="audio-btn-inline"
-                        onclick="speakFrench('Les amis')"
+                        onclick="speakFrench('un chat')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">des chats</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('des chats')"
                         title="Play audio"
                       >
                         <i class="fas fa-volume-up"></i>
@@ -1397,12 +270,21 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Mon enfant</td>
                     <td>
-                      <span class="french-word">Mes enfants</span>
+                      <span class="french-word">une pomme</span>
                       <button
                         class="audio-btn-inline"
-                        onclick="speakFrench('Mes enfants')"
+                        onclick="speakFrench('une pomme')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">des pommes</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('des pommes')"
                         title="Play audio"
                       >
                         <i class="fas fa-volume-up"></i>
@@ -1410,12 +292,21 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Une idée</td>
                     <td>
-                      <span class="french-word">Des idées</span>
+                      <span class="french-word">le livre</span>
                       <button
                         class="audio-btn-inline"
-                        onclick="speakFrench('Des idées')"
+                        onclick="speakFrench('le livre')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">les livres</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('les livres')"
                         title="Play audio"
                       >
                         <i class="fas fa-volume-up"></i>
@@ -1423,25 +314,21 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Le village</td>
                     <td>
-                      <span class="french-word">Les villages</span>
+                      <span class="french-word">la table</span>
                       <button
                         class="audio-btn-inline"
-                        onclick="speakFrench('Les villages')"
+                        onclick="speakFrench('la table')"
                         title="Play audio"
                       >
                         <i class="fas fa-volume-up"></i>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>Le chapeau</td>
                     <td>
-                      <span class="french-word">Les chapeaux</span>
+                      <span class="french-word">les tables</span>
                       <button
                         class="audio-btn-inline"
-                        onclick="speakFrench('Les chapeaux')"
+                        onclick="speakFrench('les tables')"
                         title="Play audio"
                       >
                         <i class="fas fa-volume-up"></i>
@@ -1451,736 +338,954 @@
                 </tbody>
               </table>
             </div>
+
+            <div class="info-box tip-box">
+              <h4>💡 Key Points</h4>
+              <p>
+                See those <strong>"les"</strong> and
+                <strong>"des"</strong> popping up everywhere? It's simple. When
+                a noun becomes plural, <em>le</em> and <em>la</em> change to
+                <strong>les</strong>, and <em>un</em> and <em>une</em> become
+                <strong>des</strong>. That's all there is to it.
+              </p>
+              <p>
+                Your definite and indefinite articles have simply become plural.
+              </p>
+            </div>
+
+            <div class="info-box note-box">
+              <h4>📝 Note: Liaison</h4>
+              <p>
+                The final <strong>-s</strong> in plural nouns is usually silent
+                when speaking. However, when a plural word ending in a silent -s
+                is followed by a word that begins with a vowel (a, e, i, o, u,
+                y) or a silent "h", a sound link can happen. This is called
+                <strong>liaison</strong>.
+              </p>
+              <p>
+                In liaison, the silent -s is pronounced like a
+                <strong>z</strong> sound to connect the words smoothly.
+              </p>
+              <ul>
+                <li>
+                  <strong>Les</strong> = "lay" → with liaison: "lay-z"
+                  <button
+                    class="audio-btn-inline"
+                    onclick="speakFrench('Les amis')"
+                    title="Play audio"
+                  >
+                    <i class="fas fa-volume-up"></i>
+                  </button>
+                </li>
+                <li>
+                  <strong>Mes</strong> = "may" → with liaison: "may-z"
+                  <button
+                    class="audio-btn-inline"
+                    onclick="speakFrench('Mes enfants')"
+                    title="Play audio"
+                  >
+                    <i class="fas fa-volume-up"></i>
+                  </button>
+                </li>
+                <li>
+                  <strong>Des</strong> = "day" → with liaison: "day-z"
+                  <button
+                    class="audio-btn-inline"
+                    onclick="speakFrench('Des idées')"
+                    title="Play audio"
+                  >
+                    <i class="fas fa-volume-up"></i>
+                  </button>
+                </li>
+              </ul>
+
+              <div class="table-responsive">
+                <table class="liaison-table">
+                  <thead>
+                    <tr>
+                      <th>Singular Form</th>
+                      <th>Plural Phrase (with liaison)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>L'ami</td>
+                      <td>
+                        <span class="french-word">Les amis</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Les amis')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mon enfant</td>
+                      <td>
+                        <span class="french-word">Mes enfants</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Mes enfants')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Une idée</td>
+                      <td>
+                        <span class="french-word">Des idées</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Des idées')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Le village</td>
+                      <td>
+                        <span class="french-word">Les villages</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Les villages')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Le chapeau</td>
+                      <td>
+                        <span class="french-word">Les chapeaux</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Les chapeaux')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="rule-2" class="rule-section">
-        <div class="rule-card">
-          <h3>
-            <span class="rule-badge">Rule 2</span> Nouns ending in -s, -x, or -z
-            stay the same
-          </h3>
-          <p class="rule-description">
-            No change in spelling; they already look plural.
-          </p>
+        <div id="rule-2" class="rule-section">
+          <div class="rule-card">
+            <h3>
+              <span class="rule-badge">Rule 2</span> Nouns ending in -s, -x, or
+              -z stay the same
+            </h3>
+            <p class="rule-description">
+              No change in spelling; they already look plural.
+            </p>
 
+            <div class="table-responsive">
+              <table class="rule-table">
+                <thead>
+                  <tr>
+                    <th>Singular Phrase</th>
+                    <th>Plural Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un choix</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un choix')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des choix</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des choix')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un nez</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un nez')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des nez</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des nez')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un fils</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un fils')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des fils</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des fils')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="info-box tip-box">
+              <h4>💡 Remember</h4>
+              <p>
+                Only the article shows the plural form. The noun itself remains
+                unchanged!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="rule-3" class="rule-section">
+          <div class="rule-card">
+            <h3>
+              <span class="rule-badge">Rule 3</span> Nouns ending in -eau, -au,
+              or -eu add "x"
+            </h3>
+            <p class="rule-description">
+              Add <strong>–x</strong> instead of –s.
+            </p>
+
+            <div class="table-responsive">
+              <table class="rule-table">
+                <thead>
+                  <tr>
+                    <th>Singular Phrase</th>
+                    <th>Plural Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un tableau</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un tableau')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des tableaux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des tableaux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un gâteau</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un gâteau')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des gâteaux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des gâteaux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un jeu</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un jeu')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des jeux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des jeux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="info-box exception-box">
+              <h4>⚠️ Exceptions</h4>
+              <p>Some nouns just add -s instead:</p>
+              <ul>
+                <li><strong>bleu</strong> → <strong>bleus</strong></li>
+                <li><strong>pneu</strong> → <strong>pneus</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="rule-4" class="rule-section">
+          <div class="rule-card">
+            <h3>
+              <span class="rule-badge">Rule 4</span> Nouns ending in -al change
+              to -aux
+            </h3>
+            <p class="rule-description">
+              Replace <strong>-al</strong> with <strong>-aux</strong>.
+            </p>
+
+            <div class="table-responsive">
+              <table class="rule-table">
+                <thead>
+                  <tr>
+                    <th>Singular Phrase</th>
+                    <th>Plural Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un animal</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un animal')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des animaux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des animaux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un journal</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un journal')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="french-word">Des journaux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des journaux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="info-box exception-box">
+              <h4>⚠️ Exceptions</h4>
+              <p>Some nouns just add -s:</p>
+              <ul>
+                <li>
+                  <strong>un festival</strong> → <strong>des festivals</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="rule-5" class="rule-section">
+          <div class="rule-card">
+            <h3>
+              <span class="rule-badge">Rule 5</span> Seven nouns ending in -ou
+              change to -oux
+            </h3>
+            <p class="rule-description">
+              Most other -ou nouns just take a regular -s in plural. These are
+              the
+              <strong>7 exceptions</strong> in French where -ou becomes -oux in
+              the plural.
+            </p>
+
+            <div class="table-responsive">
+              <table class="rule-table special-table">
+                <thead>
+                  <tr>
+                    <th>Singular Phrase</th>
+                    <th>Meaning</th>
+                    <th>Plural Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un bijou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un bijou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a jewel / jewellery</td>
+                    <td>
+                      <span class="french-word">Des bijoux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des bijoux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un caillou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un caillou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a pebble</td>
+                    <td>
+                      <span class="french-word">Des cailloux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des cailloux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un chou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un chou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a cabbage</td>
+                    <td>
+                      <span class="french-word">Des choux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des choux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un genou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un genou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a knee</td>
+                    <td>
+                      <span class="french-word">Des genoux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des genoux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un hibou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un hibou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>an owl</td>
+                    <td>
+                      <span class="french-word">Des hiboux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des hiboux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un joujou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un joujou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a toy</td>
+                    <td>
+                      <span class="french-word">Des joujoux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des joujoux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="french-word">Un pou</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Un pou')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                    <td>a louse</td>
+                    <td>
+                      <span class="french-word">Des poux</span>
+                      <button
+                        class="audio-btn-inline"
+                        onclick="speakFrench('Des poux')"
+                        title="Play audio"
+                      >
+                        <i class="fas fa-volume-up"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="info-box tip-box">
+              <h4>💡 Memory Tip</h4>
+              <p>
+                Remember these 7 special words! All other -ou words just add a
+                regular -s.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <section class="summary-section">
+          <h2>Summary of All Rules</h2>
           <div class="table-responsive">
-            <table class="rule-table">
+            <table class="summary-table">
               <thead>
                 <tr>
-                  <th>Singular Phrase</th>
-                  <th>Plural Form</th>
+                  <th>Rule</th>
+                  <th>Main Idea</th>
+                  <th>Examples</th>
+                  <th>Notes</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
+                  <td><strong>Rule 1</strong></td>
+                  <td>Most nouns form the plural by adding -s</td>
+                  <td>chat → chats<br />pomme → pommes<br />livre → livres</td>
                   <td>
-                    <span class="french-word">Un choix</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un choix')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des choix</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des choix')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
+                    The final -s is silent. Articles change to <em>les</em> and
+                    <em>des</em>. Liaison appears before vowels.
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    <span class="french-word">Un nez</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un nez')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des nez</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des nez')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
+                  <td><strong>Rule 2</strong></td>
+                  <td>Nouns ending in -s, -x, or -z do not change</td>
+                  <td>choix → choix<br />nez → nez<br />fils → fils</td>
+                  <td>Only the article shows the plural form.</td>
                 </tr>
                 <tr>
+                  <td><strong>Rule 3</strong></td>
+                  <td>Nouns ending in -eau, -au, or -eu add -x</td>
                   <td>
-                    <span class="french-word">Un fils</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un fils')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
+                    tableau → tableaux<br />gâteau → gâteaux<br />jeu → jeux
                   </td>
-                  <td>
-                    <span class="french-word">Des fils</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des fils')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
+                  <td>The -x is silent. A few exceptions add -s.</td>
+                </tr>
+                <tr>
+                  <td><strong>Rule 4</strong></td>
+                  <td>Nouns ending in -al change to -aux</td>
+                  <td>animal → animaux<br />journal → journaux</td>
+                  <td>Some exceptions add -s, such as festival → festivals.</td>
+                </tr>
+                <tr>
+                  <td><strong>Rule 5</strong></td>
+                  <td>Seven nouns ending in -ou change to -oux</td>
+                  <td>bijou → bijoux<br />chou → choux<br />genou → genoux</td>
+                  <td>Most other -ou nouns take a regular -s.</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </section>
 
-          <div class="info-box tip-box">
-            <h4>💡 Remember</h4>
+        <section class="agreement-section">
+          <div class="info-box">
+            <h2>What Else Changes with Plural Nouns?</h2>
             <p>
-              Only the article shows the plural form. The noun itself remains
-              unchanged!
+              For now, just remember this: in French, when a noun is plural,
+              some other words linked to it are usually plural too. These
+              include articles (like <em>les</em>), adjectives (like
+              <em>grands</em>), verbs (like <em>jouent</em>), demonstratives
+              (like <em>ces</em>), and possessives (like <em>mes</em>).
+            </p>
+
+            <div class="table-responsive">
+              <table class="agreement-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>French</th>
+                    <th>English Translation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Definite article</td>
+                    <td>les chats</td>
+                    <td>the cats</td>
+                  </tr>
+                  <tr>
+                    <td>Indefinite article</td>
+                    <td>des livres</td>
+                    <td>(some) books</td>
+                  </tr>
+                  <tr>
+                    <td>Partitive article</td>
+                    <td>des fruits</td>
+                    <td>(some) fruits</td>
+                  </tr>
+                  <tr>
+                    <td>Adjective</td>
+                    <td>grandes maisons</td>
+                    <td>big houses</td>
+                  </tr>
+                  <tr>
+                    <td>Verb (subject-verb)</td>
+                    <td>les enfants jouent</td>
+                    <td>the children are playing</td>
+                  </tr>
+                  <tr>
+                    <td>Demonstrative adjective</td>
+                    <td>ces chaises</td>
+                    <td>these chairs</td>
+                  </tr>
+                  <tr>
+                    <td>Possessive adjective</td>
+                    <td>ses amis</td>
+                    <td>his/her friends</td>
+                  </tr>
+                  <tr>
+                    <td>Pronoun (subject or obj)</td>
+                    <td>ils parlent, je les vois</td>
+                    <td>they are speaking, I see them</td>
+                  </tr>
+                  <tr>
+                    <td>à / de contractions</td>
+                    <td>aux filles, des garçons</td>
+                    <td>to the girls, (some) boys</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="note-text">
+              You do not need to master all of this right now. You will learn
+              these rules step by step as you continue learning French. This
+              note is only to keep you informed so you know what is coming
+              later.
             </p>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div id="rule-3" class="rule-section">
-        <div class="rule-card">
-          <h3>
-            <span class="rule-badge">Rule 3</span> Nouns ending in -eau, -au, or
-            -eu add "x"
-          </h3>
-          <p class="rule-description">Add <strong>–x</strong> instead of –s.</p>
-
-          <div class="table-responsive">
-            <table class="rule-table">
-              <thead>
-                <tr>
-                  <th>Singular Phrase</th>
-                  <th>Plural Form</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="french-word">Un tableau</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un tableau')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des tableaux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des tableaux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un gâteau</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un gâteau')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des gâteaux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des gâteaux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un jeu</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un jeu')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des jeux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des jeux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="info-box exception-box">
-            <h4>⚠️ Exceptions</h4>
-            <p>Some nouns just add -s instead:</p>
-            <ul>
-              <li><strong>bleu</strong> → <strong>bleus</strong></li>
-              <li><strong>pneu</strong> → <strong>pneus</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div id="rule-4" class="rule-section">
-        <div class="rule-card">
-          <h3>
-            <span class="rule-badge">Rule 4</span> Nouns ending in -al change to
-            -aux
-          </h3>
-          <p class="rule-description">
-            Replace <strong>-al</strong> with <strong>-aux</strong>.
-          </p>
-
-          <div class="table-responsive">
-            <table class="rule-table">
-              <thead>
-                <tr>
-                  <th>Singular Phrase</th>
-                  <th>Plural Form</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="french-word">Un animal</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un animal')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des animaux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des animaux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un journal</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un journal')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="french-word">Des journaux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des journaux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="info-box exception-box">
-            <h4>⚠️ Exceptions</h4>
-            <p>Some nouns just add -s:</p>
-            <ul>
-              <li>
-                <strong>un festival</strong> → <strong>des festivals</strong>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div id="rule-5" class="rule-section">
-        <div class="rule-card">
-          <h3>
-            <span class="rule-badge">Rule 5</span> Seven nouns ending in -ou
-            change to -oux
-          </h3>
-          <p class="rule-description">
-            Most other -ou nouns just take a regular -s in plural. These are the
-            <strong>7 exceptions</strong> in French where -ou becomes -oux in
-            the plural.
-          </p>
-
-          <div class="table-responsive">
-            <table class="rule-table special-table">
-              <thead>
-                <tr>
-                  <th>Singular Phrase</th>
-                  <th>Meaning</th>
-                  <th>Plural Form</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="french-word">Un bijou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un bijou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a jewel / jewellery</td>
-                  <td>
-                    <span class="french-word">Des bijoux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des bijoux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un caillou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un caillou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a pebble</td>
-                  <td>
-                    <span class="french-word">Des cailloux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des cailloux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un chou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un chou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a cabbage</td>
-                  <td>
-                    <span class="french-word">Des choux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des choux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un genou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un genou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a knee</td>
-                  <td>
-                    <span class="french-word">Des genoux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des genoux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un hibou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un hibou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>an owl</td>
-                  <td>
-                    <span class="french-word">Des hiboux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des hiboux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un joujou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un joujou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a toy</td>
-                  <td>
-                    <span class="french-word">Des joujoux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des joujoux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="french-word">Un pou</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Un pou')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                  <td>a louse</td>
-                  <td>
-                    <span class="french-word">Des poux</span>
-                    <button
-                      class="audio-btn-inline"
-                      onclick="speakFrench('Des poux')"
-                      title="Play audio"
-                    >
-                      <i class="fas fa-volume-up"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="info-box tip-box">
-            <h4>💡 Memory Tip</h4>
-            <p>
-              Remember these 7 special words! All other -ou words just add a
-              regular -s.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <section class="summary-section">
-        <h2>Summary of All Rules</h2>
-        <div class="table-responsive">
-          <table class="summary-table">
-            <thead>
-              <tr>
-                <th>Rule</th>
-                <th>Main Idea</th>
-                <th>Examples</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Rule 1</strong></td>
-                <td>Most nouns form the plural by adding -s</td>
-                <td>chat → chats<br />pomme → pommes<br />livre → livres</td>
-                <td>
-                  The final -s is silent. Articles change to <em>les</em> and
-                  <em>des</em>. Liaison appears before vowels.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Rule 2</strong></td>
-                <td>Nouns ending in -s, -x, or -z do not change</td>
-                <td>choix → choix<br />nez → nez<br />fils → fils</td>
-                <td>Only the article shows the plural form.</td>
-              </tr>
-              <tr>
-                <td><strong>Rule 3</strong></td>
-                <td>Nouns ending in -eau, -au, or -eu add -x</td>
-                <td>
-                  tableau → tableaux<br />gâteau → gâteaux<br />jeu → jeux
-                </td>
-                <td>The -x is silent. A few exceptions add -s.</td>
-              </tr>
-              <tr>
-                <td><strong>Rule 4</strong></td>
-                <td>Nouns ending in -al change to -aux</td>
-                <td>animal → animaux<br />journal → journaux</td>
-                <td>Some exceptions add -s, such as festival → festivals.</td>
-              </tr>
-              <tr>
-                <td><strong>Rule 5</strong></td>
-                <td>Seven nouns ending in -ou change to -oux</td>
-                <td>bijou → bijoux<br />chou → choux<br />genou → genoux</td>
-                <td>Most other -ou nouns take a regular -s.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="agreement-section">
-        <div class="info-box">
-          <h2>What Else Changes with Plural Nouns?</h2>
-          <p>
-            For now, just remember this: in French, when a noun is plural, some
-            other words linked to it are usually plural too. These include
-            articles (like <em>les</em>), adjectives (like <em>grands</em>),
-            verbs (like <em>jouent</em>), demonstratives (like <em>ces</em>),
-            and possessives (like <em>mes</em>).
-          </p>
-
-          <div class="table-responsive">
-            <table class="agreement-table">
-              <thead>
-                <tr>
-                  <th>Element</th>
-                  <th>French</th>
-                  <th>English Translation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Definite article</td>
-                  <td>les chats</td>
-                  <td>the cats</td>
-                </tr>
-                <tr>
-                  <td>Indefinite article</td>
-                  <td>des livres</td>
-                  <td>(some) books</td>
-                </tr>
-                <tr>
-                  <td>Partitive article</td>
-                  <td>des fruits</td>
-                  <td>(some) fruits</td>
-                </tr>
-                <tr>
-                  <td>Adjective</td>
-                  <td>grandes maisons</td>
-                  <td>big houses</td>
-                </tr>
-                <tr>
-                  <td>Verb (subject-verb)</td>
-                  <td>les enfants jouent</td>
-                  <td>the children are playing</td>
-                </tr>
-                <tr>
-                  <td>Demonstrative adjective</td>
-                  <td>ces chaises</td>
-                  <td>these chairs</td>
-                </tr>
-                <tr>
-                  <td>Possessive adjective</td>
-                  <td>ses amis</td>
-                  <td>his/her friends</td>
-                </tr>
-                <tr>
-                  <td>Pronoun (subject or obj)</td>
-                  <td>ils parlent, je les vois</td>
-                  <td>they are speaking, I see them</td>
-                </tr>
-                <tr>
-                  <td>à / de contractions</td>
-                  <td>aux filles, des garçons</td>
-                  <td>to the girls, (some) boys</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p class="note-text">
-            You do not need to master all of this right now. You will learn
-            these rules step by step as you continue learning French. This note
-            is only to keep you informed so you know what is coming later.
-          </p>
-        </div>
-      </section>
-
-      <!-- Audio Story Section -->
-      <section class="listening-section">
-        <div class="listening-card">
-          <div class="listening-content">
-            <div class="audio-header">
-              <button class="main-play-btn" id="mainPlayBtn">
-                <i class="fas fa-play"></i>
-              </button>
-              <div class="audio-info">
-                <span class="speed-display">1.0x</span>
-                <div class="progress-bar">
-                  <div class="progress-fill"></div>
-                </div>
-                <button class="refresh-btn" id="refreshBtn">
-                  <i class="fas fa-redo"></i>
+        <!-- Audio Story Section -->
+        <section id="listening-practice" class="listening-section">
+          <div class="listening-card">
+            <div class="listening-content">
+              <div class="audio-header">
+                <button class="main-play-btn" id="mainPlayBtn">
+                  <i class="fas fa-play"></i>
                 </button>
+                <div class="audio-info">
+                  <span class="speed-display">1.0x</span>
+                  <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                  </div>
+                  <button class="refresh-btn" id="refreshBtn">
+                    <i class="fas fa-redo"></i>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="story-title">Deux café S'il-vous plaît</h3>
+
+              <div class="story-text-box" id="storyTextBox">
+                <p class="story-sentence" data-index="0" data-translation="This morning, I walk on this calm street and I look around me.">
+                  <strong class="french-sentence"
+                    >Ce matin, je marche dans cette rue calme et je regarde
+                    autour de moi.</strong
+                  >
+                </p>
+
+                <p class="story-sentence" data-index="1" data-translation="Near the café, I see this man with a smile and he speaks softly.">
+                  <strong class="french-sentence"
+                    >Près du café, je vois cet homme avec un sourire et il parle
+                    doucement.</strong
+                  >
+                </p>
+
+                <p class="story-sentence" data-index="2" data-translation="This man reads this book while he drinks a coffee.">
+                  <strong class="french-sentence"
+                    >Cet homme lit ce livre-ci pendant qu'il boit un
+                    café.</strong
+                  >
+                </p>
+
+                <p class="story-sentence" data-index="3" data-translation="A little further, these children play in that park and laugh together.">
+                  <strong class="french-sentence"
+                    >Un peu plus loin, ces enfants jouent dans le parc-là et
+                    rient ensemble.</strong
+                  >
+                </p>
+
+                <p class="story-sentence" data-index="4" data-translation="This simple scene makes me calm and happy.">
+                  <strong class="french-sentence"
+                    >Cette scène simple me rend calme et heureux.</strong
+                  >
+                </p>
+              </div>
+
+              <div class="listening-controls">
+                <button class="play-story-btn" id="playStoryBtn">
+                  <i class="fas fa-play"></i> Play Story
+                </button>
+                <button
+                  class="pause-story-btn"
+                  id="pauseStoryBtn"
+                  style="display: none"
+                >
+                  <i class="fas fa-pause"></i> Pause
+                </button>
+                <select id="speedControl" class="speed-selector">
+                  <option value="0.6">Slow</option>
+                  <option value="0.8" selected>Normal</option>
+                  <option value="1.0">Fast</option>
+                </select>
               </div>
             </div>
 
-            <h3 class="story-title">Deux café S'il-vous plaît</h3>
-
-            <div class="story-text-box" id="storyTextBox">
-              <p class="story-sentence" data-index="0">
-                <strong class="french-sentence"
-                  >Ce matin, je marche dans cette rue calme et je regarde autour
-                  de moi.</strong
-                >
-                <span class="translation"
-                  >This morning, I walk in this quiet street and look
-                  around.</span
-                >
-              </p>
-
-              <p class="story-sentence" data-index="1">
-                <strong class="french-sentence"
-                  >Près du café, je vois cet homme avec un sourire et il parle
-                  doucement.</strong
-                >
-                <span class="translation"
-                  >Near the café, I see this man with a smile and he speaks
-                  softly.</span
-                >
-              </p>
-
-              <p class="story-sentence" data-index="2">
-                <strong class="french-sentence"
-                  >Cet homme lit ce livre-ci pendant qu'il boit un café.</strong
-                >
-                <span class="translation"
-                  >This man reads this book here while he drinks a coffee.</span
-                >
-              </p>
-
-              <p class="story-sentence" data-index="3">
-                <strong class="french-sentence"
-                  >Un peu plus loin, ces enfants jouent dans le parc-là et rient
-                  ensemble.</strong
-                >
-                <span class="translation"
-                  >A little farther, these children play in that park there and
-                  laugh together.</span
-                >
-              </p>
-
-              <p class="story-sentence" data-index="4">
-                <strong class="french-sentence"
-                  >Cette scène simple me rend calme et heureux.</strong
-                >
-                <span class="translation"
-                  >This simple scene makes me calm and happy.</span
-                >
-              </p>
-            </div>
-
-            <div class="listening-controls">
-              <button class="play-story-btn" id="playStoryBtn">
-                <i class="fas fa-play"></i> Play Story
-              </button>
-              <button
-                class="pause-story-btn"
-                id="pauseStoryBtn"
-                style="display: none"
-              >
-                <i class="fas fa-pause"></i> Pause
-              </button>
-              <select id="speedControl" class="speed-selector">
-                <option value="0.6">Slow</option>
-                <option value="0.8" selected>Normal</option>
-                <option value="1.0">Fast</option>
-              </select>
+            <div class="listening-image">
+              <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop&q=80"
+                alt="Cafe terrace with coffee and food"
+              />
             </div>
           </div>
-
-          <div class="listening-image">
-            <img
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop&q=80"
-              alt="Cafe terrace with coffee and food"
-            />
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <p>
-          Keep practicing and soon French plurals will become second nature! 🎉
-        </p>
-      </footer>
+        </section>
+      </div>
     </div>
+    <!-- End Main Content -->
 
     <script>
       // Story audio player variables
-      let storyText = `Ce matin, je marche dans cette rue calme et je regarde autour de moi. Près du café, je vois cet homme avec un sourire et il parle doucement. Cet homme lit ce livre-ci pendant qu'il boit un café. Un peu plus loin, ces enfants jouent dans le parc-là et rient ensemble. Cette scène simple me rend calme et heureux.`;
-      let storySentences = [
-        "Ce matin, je marche dans cette rue calme et je regarde autour de moi.",
-        "Près du café, je vois cet homme avec un sourire et il parle doucement.",
-        "Cet homme lit ce livre-ci pendant qu'il boit un café.",
-        "Un peu plus loin, ces enfants jouent dans le parc-là et rient ensemble.",
-        "Cette scène simple me rend calme et heureux.",
-      ];
+      let storySentences = [];
       let storyUtterance = null;
       let isPlaying = false;
       let currentSentenceIndex = 0;
+      let letterTimer = null;
+
+      // Word translations dictionary
+      const wordTranslations = {
+        "ce": "this",
+        "matin": "morning",
+        "je": "I",
+        "marche": "walk",
+        "dans": "in",
+        "cette": "this",
+        "rue": "street",
+        "calme": "calm",
+        "et": "and",
+        "regarde": "look",
+        "autour": "around",
+        "de": "of",
+        "moi": "me",
+        "près": "near",
+        "du": "of the",
+        "café": "café",
+        "vois": "see",
+        "cet": "this",
+        "homme": "man",
+        "avec": "with",
+        "un": "a",
+        "sourire": "smile",
+        "il": "he",
+        "parle": "speaks",
+        "doucement": "softly",
+        "lit": "reads",
+        "livre-ci": "book",
+        "pendant": "while",
+        "qu'il": "that he",
+        "boit": "drinks",
+        "peu": "little",
+        "plus": "more",
+        "loin": "far",
+        "ces": "these",
+        "enfants": "children",
+        "jouent": "play",
+        "le": "the",
+        "parc-là": "park",
+        "rient": "laugh",
+        "ensemble": "together",
+        "scène": "scene",
+        "simple": "simple",
+        "me": "me",
+        "rend": "makes",
+        "heureux": "happy"
+      };
+
+      function normalizeSentence(text) {
+        return text.replace(/\s+/g, " ").trim();
+      }
+
+      function getWordTranslation(word) {
+        const cleanWord = word.toLowerCase().replace(/[.,!?;:]/g, "");
+        return wordTranslations[cleanWord] || "";
+      }
+
+      function buildWordLetterSpans(sentenceEl) {
+        const rawText = normalizeSentence(sentenceEl.textContent);
+        const fragment = document.createDocumentFragment();
+        const tokens = rawText.split(/(\s+)/);
+        let offset = 0;
+
+        tokens.forEach((token) => {
+          if (token === "") {
+            return;
+          }
+
+          if (/^\s+$/.test(token)) {
+            fragment.appendChild(document.createTextNode(token));
+            offset += token.length;
+            return;
+          }
+
+          const wordSpan = document.createElement("span");
+          wordSpan.className = "word";
+          wordSpan.dataset.start = offset;
+          wordSpan.dataset.end = offset + token.length;
+          
+          // Add translation to word
+          const translation = getWordTranslation(token);
+          if (translation) {
+            wordSpan.dataset.translation = translation;
+          }
+
+          Array.from(token).forEach((char, index) => {
+            const letterSpan = document.createElement("span");
+            letterSpan.className = "letter";
+            letterSpan.textContent = char;
+            letterSpan.dataset.index = offset + index;
+            wordSpan.appendChild(letterSpan);
+          });
+
+          fragment.appendChild(wordSpan);
+          offset += token.length;
+        });
+
+        sentenceEl.textContent = "";
+        sentenceEl.appendChild(fragment);
+        sentenceEl.dataset.text = rawText;
+      }
 
       // Highlight sentence
       function highlightSentence(index) {
@@ -2204,6 +1309,90 @@
         document.querySelectorAll(".story-sentence").forEach((el) => {
           el.classList.remove("active");
         });
+
+        document
+          .querySelectorAll(".french-sentence .letter")
+          .forEach((letter) => letter.classList.remove("letter-active"));
+
+        document
+          .querySelectorAll(".french-sentence .word")
+          .forEach((word) => {
+            word.classList.remove("word-active");
+            word.classList.remove("word-speaking");
+          });
+
+        if (letterTimer) {
+          clearInterval(letterTimer);
+          letterTimer = null;
+        }
+      }
+
+      function highlightLettersInWord(wordEl, rate) {
+        if (!wordEl) {
+          return;
+        }
+
+        if (letterTimer) {
+          clearInterval(letterTimer);
+          letterTimer = null;
+        }
+
+        const letters = Array.from(wordEl.querySelectorAll(".letter"));
+        letters.forEach((letter) => letter.classList.remove("letter-active"));
+
+        if (letters.length === 0) {
+          return;
+        }
+
+        let index = 0;
+        const baseCharsPerSecond = 12;
+        const interval = Math.max(40, 1000 / (baseCharsPerSecond * rate));
+
+        // Add word-speaking class when starting
+        wordEl.classList.add("word-speaking");
+        letters[0].classList.add("letter-active");
+
+        letterTimer = setInterval(() => {
+          if (index >= letters.length - 1) {
+            clearInterval(letterTimer);
+            letterTimer = null;
+            // Keep word-speaking class - it will be removed when next word starts
+            return;
+          }
+          index += 1;
+          letters[index - 1].classList.remove("letter-active");
+          letters[index].classList.add("letter-active");
+        }, interval);
+      }
+
+      function highlightWordAtIndex(sentenceEl, charIndex, rate) {
+        if (!sentenceEl) {
+          console.log("No sentence element");
+          return;
+        }
+
+        const words = Array.from(sentenceEl.querySelectorAll(".word"));
+        console.log("Found words:", words.length, "charIndex:", charIndex);
+        
+        // Remove all previous word highlighting
+        words.forEach((word) => {
+          word.classList.remove("word-active");
+          word.classList.remove("word-speaking");
+        });
+
+        const activeWord = words.find((word) => {
+          const start = Number(word.dataset.start);
+          const end = Number(word.dataset.end);
+          return charIndex >= start && charIndex < end;
+        });
+
+        if (activeWord) {
+          console.log("Highlighting word:", activeWord.textContent);
+          activeWord.classList.add("word-active");
+          highlightLettersInWord(activeWord, rate);
+        } else {
+          console.log("No active word found for charIndex:", charIndex);
+        }
       }
 
       // Play story function with highlighting
@@ -2246,14 +1435,58 @@
 
         highlightSentence(index);
 
+        const sentenceElement = document.querySelector(
+          `.story-sentence[data-index="${index}"] .french-sentence`,
+        );
         const utterance = new SpeechSynthesisUtterance(storySentences[index]);
         const speedControl = document.getElementById("speedControl");
+        const rate = parseFloat(speedControl ? speedControl.value : 0.8);
         utterance.lang = "fr-FR";
-        utterance.rate = parseFloat(speedControl ? speedControl.value : 0.8);
+        utterance.rate = rate;
         utterance.pitch = 1;
         utterance.volume = 1;
 
+        // Time-based word highlighting
+        const words = Array.from(sentenceElement.querySelectorAll(".word"));
+        const text = storySentences[index];
+        const avgCharsPerSecond = 12 * rate;
+        let currentWordIndex = 0;
+
+        utterance.onstart = function() {
+          if (words.length > 0) {
+            words[0].classList.add("word-speaking");
+            highlightLettersInWord(words[0], rate);
+            
+            const wordInterval = setInterval(() => {
+              if (currentWordIndex < words.length - 1 && isPlaying) {
+                words[currentWordIndex].classList.remove("word-speaking");
+                currentWordIndex++;
+                words[currentWordIndex].classList.add("word-speaking");
+                highlightLettersInWord(words[currentWordIndex], rate);
+              } else {
+                clearInterval(wordInterval);
+              }
+            }, 400 / rate);
+            
+            utterance.wordInterval = wordInterval;
+          }
+        };
+
         utterance.onend = function () {
+          if (utterance.wordInterval) {
+            clearInterval(utterance.wordInterval);
+          }
+          if (sentenceElement) {
+            sentenceElement
+              .querySelectorAll(".letter")
+              .forEach((letter) => letter.classList.remove("letter-active"));
+            sentenceElement
+              .querySelectorAll(".word")
+              .forEach((word) => {
+                word.classList.remove("word-active");
+                word.classList.remove("word-speaking");
+              });
+          }
           if (isPlaying) {
             // Play next sentence
             currentSentenceIndex++;
@@ -2565,6 +1798,17 @@
 
       // Initialize page on load
       document.addEventListener("DOMContentLoaded", function () {
+        // Prepare story text for word-level highlighting
+        const storySentenceEls = document.querySelectorAll(
+          ".story-sentence .french-sentence",
+        );
+        storySentences = Array.from(storySentenceEls).map((el) => {
+          const normalized = normalizeSentence(el.textContent);
+          el.textContent = normalized;
+          buildWordLetterSpans(el);
+          return normalized;
+        });
+
         // Add translation tooltips
         addTranslationTooltips();
 
