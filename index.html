@@ -816,53 +816,41 @@
 
       .speed-selector {
         font-family: "DM Sans", sans-serif;
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid #e8dfd6;
-        border-radius: 8px;
-        padding: 6px 12px;
+        font-size: 0.875rem;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+        border: 2px solid #e0d5c7;
+        border-radius: 10px;
+        padding: 8px 16px;
         cursor: pointer;
-        font-weight: 500;
-        transition: all 0.2s ease;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         outline: none;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23927a63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b342e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
         background-repeat: no-repeat;
-        background-position: right 8px center;
-        background-size: 16px;
-        padding-right: 32px;
+        background-position: right 10px center;
+        background-size: 18px;
+        padding-right: 38px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        min-width: 120px;
       }
 
       .speed-selector:hover {
-        background-color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
         border-color: #d4a574;
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+        transform: translateY(-1px);
       }
 
       .speed-selector:focus {
-        border-color: var(--text-primary);
-        box-shadow: 0 0 0 2px rgba(61, 40, 23, 0.1);
-      }
-
-      .speed-selector option {
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.9rem;
-        color: var(--text-primary);
-        background: white;
-        padding: 8px 12px;
-        font-weight: 500;
-      }
-
-      .speed-selector option:hover {
-        background: #fdf8f3;
-      }
-
-      .speed-selector option:checked {
-        background: linear-gradient(135deg, #fef3c7, #fde68a);
-        color: var(--text-primary);
-        font-weight: 600;
+        border-color: var(--primary-color);
+        box-shadow:
+          0 0 0 3px rgba(37, 99, 235, 0.15),
+          0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
       }
 
       .speed-display {
@@ -902,7 +890,7 @@
       .progress-bar {
         flex: 1;
         height: 6px;
-        background: #e9e4dc;
+        background: #d4c5b3;
         border-radius: 999px;
         overflow: hidden;
         position: relative;
@@ -940,7 +928,8 @@
         transition: all 0.3s ease;
         position: relative;
         cursor: help;
-        max-width: 800px;
+        max-width: 100%;
+        padding: 16px 20px;
       }
 
       .story-sentence::after {
@@ -976,23 +965,30 @@
 
       .story-sentence:hover {
         background: linear-gradient(
-          to right,
-          rgba(255, 251, 235, 0.8),
-          rgba(254, 243, 199, 0.6)
+          135deg,
+          rgba(255, 251, 235, 0.95),
+          rgba(254, 243, 199, 0.85)
         );
-        border-left: 3px solid #f59e0b;
-        padding-left: 25px;
+        border: 1px solid #fbbf24;
+        border-left: 4px solid #f59e0b;
+        padding-left: 20px;
+        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15);
+        transform: translateX(2px);
       }
 
       .story-sentence.active {
         background: linear-gradient(
-          to right,
-          rgba(236, 254, 255, 0.9),
-          rgba(207, 250, 254, 0.7)
+          135deg,
+          rgba(224, 247, 250, 0.95),
+          rgba(207, 250, 254, 0.9)
         );
-        border-left: 4px solid #06b6d4;
-        padding-left: 28px;
-        box-shadow: 0 3px 15px rgba(6, 182, 212, 0.25);
+        border: 1px solid #67e8f9;
+        border-left: 5px solid #06b6d4;
+        padding-left: 24px;
+        box-shadow:
+          0 6px 20px rgba(6, 182, 212, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        transform: translateX(4px) scale(1.01);
       }
 
       .story-sentence.active .french-sentence {
@@ -1005,13 +1001,14 @@
       }
 
       .french-sentence {
-        color: var(--text-secondary);
+        color: var(--text-primary);
         font-weight: 600;
         display: block;
-        opacity: 80%;
-        margin-bottom: 6px;
-        font-size: 1rem;
-        padding: 10px;
+        opacity: 0.9;
+        margin-bottom: 0;
+        font-size: 1.05rem;
+        padding: 0;
+        line-height: 1.8;
       }
 
       .french-sentence .word {
@@ -3372,13 +3369,6 @@
       // Add keyboard navigation
 
       // Add hover effects to table rows
-
-      // Function to update progress bar (optional enhancement)
-      function updateProgressBar(percentage) {
-        // This can be used to add a progress indicator at the top of the page
-        // For now, it's a placeholder for future enhancement
-        console.log(`Scroll progress: ${percentage.toFixed(2)}%`);
-      }
 
       // Function to highlight search terms (optional enhancement)
       function highlightText(searchTerm) {
