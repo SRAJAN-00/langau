@@ -126,7 +126,7 @@
         gap: 10px;
         padding: 10px 12px;
         border-radius: 8px;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         line-height: 1.4;
         border-left: 3px solid transparent;
         font-weight: 500;
@@ -137,23 +137,34 @@
         width: 18px;
         text-align: center;
         opacity: 0.7;
+        transition: all 0.3s ease;
       }
 
       .toc-list a:hover {
-        background: transparent;
+        background: rgba(212, 165, 116, 0.08);
         color: var(--text-primary);
-        border-left-color: transparent;
       }
 
       .toc-list a:hover i {
         opacity: 1;
+        transform: scale(0.98);
+      }
+
+      .toc-list a:active {
+        transform: scale(0.98);
+        background: rgba(212, 165, 116, 0.15);
       }
 
       .toc-list a.active {
-        background: #f8fafc;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 165, 116, 0.12),
+          rgba(212, 165, 116, 0.08)
+        );
         color: var(--text-primary);
         font-weight: 600;
-        border-left-color: #cbd5f5;
+        border-left-color: #d4a574;
+        box-shadow: inset 0 1px 2px rgba(212, 165, 116, 0.1);
       }
 
       .toc-list a.active i {
@@ -262,17 +273,52 @@
         padding: 10px 12px;
         background: rgba(255, 255, 255, 0.6);
         border-radius: 6px;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         line-height: 1.4;
+        border: 1px solid transparent;
       }
 
       .sidebar-section.build-topics a:hover {
-        background: rgba(255, 255, 255, 0.9);
-        transform: translateX(2px);
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateX(3px);
+        border: 1px solid rgba(212, 165, 116, 0.3);
+        box-shadow: 0 2px 8px rgba(212, 165, 116, 0.15);
+      }
+
+      .sidebar-section.build-topics a:active {
+        transform: translateX(1px) scale(0.98);
+        box-shadow: 0 1px 4px rgba(212, 165, 116, 0.2);
+      }
+
+      .sidebar-section.build-topics a.active {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 165, 116, 0.15),
+          rgba(212, 165, 116, 0.08)
+        );
+        border: 1px solid rgba(212, 165, 116, 0.4);
+        box-shadow:
+          0 2px 8px rgba(212, 165, 116, 0.2),
+          inset 0 1px 2px rgba(212, 165, 116, 0.1);
+      }
+
+      .sidebar-section.build-topics a.active span {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .sidebar-section.build-topics a.active i {
+        opacity: 1;
+        color: #d4a574;
       }
 
       .sidebar-section.build-topics a span {
         flex: 1;
+        transition: color 0.3s ease;
+      }
+
+      .sidebar-section.build-topics a:hover span {
+        color: var(--text-primary);
       }
 
       .sidebar-section.build-topics a i {
@@ -280,6 +326,12 @@
         opacity: 0.4;
         margin-left: 8px;
         margin-top: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar-section.build-topics a:hover i {
+        opacity: 0.8;
+        transform: translateX(2px);
       }
 
       .tip-badge {
@@ -537,7 +589,7 @@
       }
 
       tbody tr:last-child td {
-        border-bottom: none;
+        border-bottom: px solid #e8dfd6;
       }
 
       .audio-btn {
@@ -810,7 +862,7 @@
       .audio-info {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
         flex: 1;
       }
 
@@ -821,7 +873,7 @@
         background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
         border: 2px solid #e0d5c7;
         border-radius: 10px;
-        padding: 8px 16px;
+        padding: 10px 18px;
         cursor: pointer;
         font-weight: 600;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -831,11 +883,11 @@
         -moz-appearance: none;
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b342e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
         background-repeat: no-repeat;
-        background-position: right 10px center;
+        background-position: right 12px center;
         background-size: 18px;
-        padding-right: 38px;
+        padding-right: 40px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        min-width: 120px;
+        min-width: 130px;
       }
 
       .speed-selector:hover {
