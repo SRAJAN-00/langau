@@ -53,7 +53,7 @@
           "Segoe UI",
           Roboto,
           sans-serif;
-        line-height: 1.7;
+        line-height: 1.1;
         color: var(--text-primary);
         background: var(--bg-primary);
         min-height: 100vh;
@@ -814,20 +814,22 @@
       }
 
       .listening-card {
-        max-width: 1250px;
+        max-width: 1400px;
         margin: 0 auto;
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        overflow: visible;
+        background: #fdfbf7;
+        border: 1px solid #e8dfd2;
+        border-radius: 16px;
+        padding: 0;
+        overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 40px;
-        box-shadow: none;
+        grid-template-columns: 1fr 380px;
+        gap: 0;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        min-height: 500px;
       }
 
       .listening-content {
-        padding: 48px 0 48px 56px;
+        padding: 56px 48px 56px 56px;
       }
 
       .audio-header {
@@ -923,7 +925,11 @@
       }
 
       .speed-selector option:checked {
-        background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(212, 165, 116, 0.15),
+          rgba(212, 165, 116, 0.08)
+        );
         color: var(--text-primary);
         font-weight: 600;
       }
@@ -979,24 +985,28 @@
 
       .story-title {
         color: var(--text-marron);
-        font-size: 1.6rem;
-        margin-bottom: 20px;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
         font-weight: 600;
+        text-align: left;
       }
 
       .story-text-box {
         background: transparent;
-
         border-radius: 0;
+        text-align: left;
+        margin-bottom: 20px;
       }
 
       .story-sentence {
-        line-height: 1.8;
+        line-height: 1.05;
         max-width: 900px;
         transition: all 0.3s ease;
         position: relative;
         cursor: help;
         max-width: 100%;
+        text-align: left;
+        margin-bottom: 4px;
       }
 
       .story-sentence::after {
@@ -1043,10 +1053,10 @@
       }
 
       .french-sentence {
-        color: #717070;
-        font-weight: 600;
+        color: #2d2d2d;
+        font-weight: 500;
         display: block;
-        opacity: 0.9;
+        opacity: 1;
         margin-bottom: 0;
         font-size: 1.05rem;
         padding: 0;
@@ -1079,24 +1089,20 @@
       .listening-image {
         position: relative;
         overflow: hidden;
-        padding: 32px 24px;
+        padding: 0;
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        align-items: stretch;
+        justify-content: center;
         background: transparent;
-        padding-top: 80px;
-        padding-left: 0;
+        height: 100%;
       }
 
       .listening-image img {
         width: 100%;
-        height: auto;
-        max-height: 480px;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         display: block;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         animation: none;
       }
 
@@ -1142,6 +1148,70 @@
       body.dark-mode .speed-display,
       body.dark-mode .refresh-btn {
         color: #d4a574;
+      }
+
+      body.dark-mode .french-sentence {
+        color: #e5e5e5;
+      }
+
+      body.dark-mode .story-sentence::after {
+        background: rgba(30, 30, 30, 0.95);
+        color: #e5e5e5;
+      }
+
+      body.dark-mode .speed-selector {
+        background: #3a302a;
+        border-color: #6b5a47;
+        color: #e5e5e5;
+      }
+
+      body.dark-mode .speed-selector:hover {
+        background: #4a3f38;
+        border-color: #d4a574;
+      }
+
+      body.dark-mode .speed-selector:focus {
+        background: #3a302a;
+        border-color: #d4a574;
+      }
+
+      body.dark-mode .speed-selector option {
+        background: #3a302a;
+        color: #e5e5e5;
+      }
+
+      body.dark-mode .main-play-btn {
+        background: #d4a574;
+        color: #1a1a1a;
+      }
+
+      body.dark-mode .main-play-btn:hover {
+        background: #e5b685;
+        box-shadow: 0 6px 16px rgba(212, 165, 116, 0.3);
+      }
+
+      body.dark-mode .rewind-btn {
+        border-color: #d4a574;
+        color: #d4a574;
+      }
+
+      body.dark-mode .rewind-btn:hover {
+        background: #d4a574;
+        color: #1a1a1a;
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+      }
+
+      body.dark-mode .progress-fill {
+        background: linear-gradient(90deg, #d4a574, #c49564);
+      }
+
+      body.dark-mode .letter-active {
+        background: #6b5a47 !important;
+        color: #e5e5e5 !important;
+      }
+
+      body.dark-mode .listening-section {
+        background: #1a1a1a;
       }
 
       /* Responsive Design */
@@ -1551,12 +1621,67 @@
       body.dark-mode .tip-box,
       body.dark-mode .note-box,
       body.dark-mode .exception-box {
-        background-color: #2a2a3a;
-        border-left-color: #4a90e2;
+        background-color: #2d2d2d;
+        border-left-color: #d4a574;
       }
 
       body.dark-mode .highlight-section {
         background-color: #252525;
+      }
+
+      body.dark-mode .rule-card {
+        background: #2d2d2d;
+        border-color: #404040;
+      }
+
+      body.dark-mode .rule-btn {
+        background: #2d2d2d;
+        border-color: #404040;
+      }
+
+      body.dark-mode .rule-btn:hover {
+        background: #3a3a3a;
+        border-color: #4a90e2;
+      }
+
+      body.dark-mode .info-box {
+        background: #2a2a3a;
+      }
+
+      body.dark-mode .highlight {
+        background: #4a3f2d;
+        border-color: #6b5a3c;
+        color: #f5d89f;
+      }
+
+      body.dark-mode .rule-badge {
+        background: #d4a574;
+        color: #1a1a1a;
+      }
+
+      body.dark-mode header {
+        background: #1a1a1a;
+        border-bottom-color: #404040;
+      }
+
+      body.dark-mode .intro-section,
+      body.dark-mode .examples-section,
+      body.dark-mode .agreement-section,
+      body.dark-mode .summary-section {
+        background: #1a1a1a;
+      }
+
+      body.dark-mode .note-text {
+        background: #2a2a3a;
+        border-color: #404040;
+      }
+
+      body.dark-mode h2 {
+        color: #d4a574;
+      }
+
+      body.dark-mode h2::after {
+        background: #d4a574;
       }
 
       /* Dark mode sidebar */
