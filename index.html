@@ -348,7 +348,8 @@
       /* Main Content Area */
       .main-content {
         margin-left: 280px;
-
+        margin-right: auto;
+        max-width: 1400px;
         flex: 1;
         min-height: 100vh;
       }
@@ -614,6 +615,7 @@
 
       .audio-btn:active {
         transform: scale(0.95);
+        background: rgba(212, 165, 116, 0.15);
       }
 
       .audio-btn i {
@@ -642,6 +644,7 @@
 
       .audio-btn-inline:active {
         transform: scale(0.95);
+        background: rgba(212, 165, 116, 0.15);
       }
 
       .audio-btn-inline i {
@@ -811,20 +814,20 @@
       }
 
       .listening-card {
-        max-width: 1200px;
+        max-width: 1250px;
         margin: 0 auto;
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        overflow: hidden;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
         display: grid;
-        grid-template-columns: 1fr 280px;
-        gap: 0;
-        box-shadow: var(--shadow-md);
+        grid-template-columns: 1fr 400px;
+        gap: 40px;
+        box-shadow: none;
       }
 
       .listening-content {
-        padding: 40px 20px;
+        padding: 48px 0 48px 56px;
       }
 
       .audio-header {
@@ -867,49 +870,62 @@
       }
 
       .speed-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: white;
+        border: 1.5px solid #e0d5c7;
+        border-radius: 8px;
+        padding: 8px 32px 8px 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
         font-family: "DM Sans", sans-serif;
         font-size: 0.875rem;
         color: var(--text-primary);
-        background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-        border: 2px solid #e0d5c7;
-        border-radius: 10px;
-        padding: 10px 18px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
         outline: none;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b342e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23927a63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
         background-repeat: no-repeat;
-        background-position: right 12px center;
-        background-size: 18px;
-        padding-right: 40px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        min-width: 130px;
+        background-position: right 10px center;
+        background-size: 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        min-width: 110px;
       }
 
       .speed-selector:hover {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
         border-color: #d4a574;
-        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
-        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(212, 165, 116, 0.15);
+        background-color: #fefefe;
       }
 
       .speed-selector:focus {
-        border-color: var(--primary-color);
-        box-shadow:
-          0 0 0 3px rgba(37, 99, 235, 0.15),
-          0 4px 12px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
+        border-color: #d4a574;
+        box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        background-color: white;
       }
 
-      .speed-display {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
+      .speed-selector option {
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-primary);
+        background: white;
+        padding: 10px 14px;
         font-weight: 500;
-        min-width: 40px;
+        border-radius: 4px;
+      }
+
+      .speed-selector option:hover {
+        background: #fdf8f3;
+        color: var(--text-primary);
+      }
+
+      .speed-selector option:checked {
+        background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.08));
+        color: var(--text-primary);
+        font-weight: 600;
       }
 
       .rewind-btn {
@@ -941,6 +957,7 @@
 
       .progress-bar {
         flex: 1;
+        max-width: 450px;
         height: 6px;
         background: #d4c5b3;
         border-radius: 999px;
@@ -974,14 +991,12 @@
       }
 
       .story-sentence {
-        margin-bottom: 20px;
-        line-height: 1.7;
-        border-radius: 8px;
+        line-height: 1.8;
+        max-width: 900px;
         transition: all 0.3s ease;
         position: relative;
         cursor: help;
         max-width: 100%;
-        padding: 16px 20px;
       }
 
       .story-sentence::after {
@@ -992,12 +1007,12 @@
         transform: translateX(-50%) translateY(-8px);
         background: rgba(50, 47, 44, 0.95);
         color: #fff;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 0.9rem;
+        padding: 16px 24px;
+        border-radius: 10px;
+        font-size: 1rem;
         white-space: normal;
-        max-width: 500px;
-        width: max-content;
+        max-width: 800px;
+        min-width: 500px;
         opacity: 0;
         pointer-events: none;
         transition:
@@ -1005,7 +1020,7 @@
           transform 0.3s ease;
         z-index: 100;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        line-height: 1.5;
+        line-height: 1.6;
         text-align: center;
         font-weight: 400;
       }
@@ -1015,37 +1030,12 @@
         transform: translateX(-50%) translateY(-12px);
       }
 
-      .story-sentence:hover {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 251, 235, 0.95),
-          rgba(254, 243, 199, 0.85)
-        );
-        border: 1px solid #fbbf24;
-        border-left: 4px solid #f59e0b;
-        padding-left: 20px;
-        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15);
-        transform: translateX(2px);
-      }
-
-      .story-sentence.active {
-        background: linear-gradient(
-          135deg,
-          rgba(224, 247, 250, 0.95),
-          rgba(207, 250, 254, 0.9)
-        );
-        border: 1px solid #67e8f9;
-        border-left: 5px solid #06b6d4;
-        padding-left: 24px;
-        box-shadow:
-          0 6px 20px rgba(6, 182, 212, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        transform: translateX(4px) scale(1.01);
+      .story-sentence:hover .french-sentence {
+        color: var(--text-primary);
       }
 
       .story-sentence.active .french-sentence {
-        color: #0e7490;
-        opacity: 100%;
+        color: var(--text-primary);
       }
 
       .story-sentence:last-child {
@@ -1053,14 +1043,14 @@
       }
 
       .french-sentence {
-        color: var(--text-primary);
+        color: #717070;
         font-weight: 600;
         display: block;
         opacity: 0.9;
         margin-bottom: 0;
         font-size: 1.05rem;
         padding: 0;
-        line-height: 1.8;
+        max-width: 900px;
       }
 
       .french-sentence .word {
@@ -1089,35 +1079,25 @@
       .listening-image {
         position: relative;
         overflow: hidden;
-        padding: 20px;
+        padding: 32px 24px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        background: transparent;
+        padding-top: 80px;
+        padding-left: 0;
       }
 
       .listening-image img {
         width: 100%;
         height: auto;
-        max-height: 350px;
+        max-height: 480px;
         object-fit: cover;
         object-position: center;
         display: block;
-        border-radius: 12px;
-        box-shadow:
-          0 10px 30px rgba(0, 0, 0, 0.2),
-          0 5px 15px rgba(0, 0, 0, 0.15);
-        animation: floatImage 3s ease-in-out infinite;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .listening-image img:hover {
-        transform: scale(1.05);
-        box-shadow:
-          0 15px 40px rgba(0, 0, 0, 0.3),
-          0 8px 20px rgba(0, 0, 0, 0.2);
-        animation-play-state: paused;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        animation: none;
       }
 
       @keyframes floatImage {
@@ -1182,7 +1162,9 @@
 
         .main-content {
           margin-left: 0;
+          margin-right: 0;
           width: 100%;
+          max-width: 100%;
         }
 
         .container {
@@ -2167,7 +2149,16 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>L'ami</td>
+                      <td>
+                        <span class="french-word">L'ami</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('L\'ami')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
                       <td>
                         <span class="french-word">Les amis</span>
                         <button
@@ -2180,7 +2171,16 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Mon enfant</td>
+                      <td>
+                        <span class="french-word">Mon enfant</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Mon enfant')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
                       <td>
                         <span class="french-word">Mes enfants</span>
                         <button
@@ -2193,7 +2193,16 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Une idée</td>
+                      <td>
+                        <span class="french-word">Une idée</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Une idée')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
                       <td>
                         <span class="french-word">Des idées</span>
                         <button
@@ -2206,7 +2215,16 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Le village</td>
+                      <td>
+                        <span class="french-word">Le village</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Le village')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
                       <td>
                         <span class="french-word">Les villages</span>
                         <button
@@ -2219,7 +2237,16 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Le chapeau</td>
+                      <td>
+                        <span class="french-word">Le chapeau</span>
+                        <button
+                          class="audio-btn-inline"
+                          onclick="speakFrench('Le chapeau')"
+                          title="Play audio"
+                        >
+                          <i class="fas fa-volume-up"></i>
+                        </button>
+                      </td>
                       <td>
                         <span class="french-word">Les chapeaux</span>
                         <button
@@ -2943,7 +2970,9 @@
                   <i class="fas fa-pause"></i> Pause
                 </button>
                 <select id="speedControl" class="speed-selector">
-                  <option value="0.6">Slow</option>
+                  <option style="background-color: rebeccapurple" value="6">
+                    Slow
+                  </option>
                   <option value="0.8" selected>Normal</option>
                   <option value="1.0">Fast</option>
                 </select>
@@ -3609,7 +3638,25 @@
           // Close sidebar when clicking a link on mobile
           const tocLinks = tocSidebar.querySelectorAll("a");
           tocLinks.forEach((link) => {
-            link.addEventListener("click", function () {
+            link.addEventListener("click", function (e) {
+              // Apply active state to clicked link (subtle)
+              document
+                .querySelectorAll(
+                  ".toc-list a, .sidebar-section.build-topics a",
+                )
+                .forEach((l) => l.classList.remove("active"));
+              this.classList.add("active");
+
+              // Smooth-scroll for internal anchors
+              const href = this.getAttribute("href");
+              if (href && href.startsWith("#")) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }
+
               if (window.innerWidth <= 968) {
                 tocSidebar.classList.remove("open");
               }
