@@ -453,6 +453,9 @@
 
       .note-box {
         background: #ffffff;
+        border-left: 4px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        padding: 20px;
       }
 
       .exception-box {
@@ -1582,10 +1585,17 @@
       body.dark-mode {
         --bg-primary: #1a1a1a;
         --bg-secondary: #2d2d2d;
+        --bg-card: #252525;
         --text-primary: #e5e5e5;
-        --text-secondary: #b0b0b0;
+        --text-secondary: #d4d4d4;
+        --text-tertiary: #9ca3af;
+        --text-marron: #d4a574;
         --border-color: #404040;
         --hover-bg: #2d2d2d;
+        --bg-neutral: #2d2d2d;
+        --header-color: #d4a574;
+        --primary-color: #60a5fa;
+        --accent-color: #93c5fd;
       }
 
       body.dark-mode section {
@@ -1618,11 +1628,31 @@
         background-color: #2d2d2d !important;
       }
 
-      body.dark-mode .tip-box,
-      body.dark-mode .note-box,
+      body.dark-mode .tip-box {
+        background: #2d2a22 !important;
+        border-left: 4px solid #d4a574 !important;
+      }
+
+      body.dark-mode .tip-box h4 {
+        color: #d4a574;
+      }
+
+      body.dark-mode .note-box {
+        background: #1e2532 !important;
+        border-left: 4px solid #6b9bd1 !important;
+      }
+
+      body.dark-mode .note-box h4 {
+        color: #93c5fd;
+      }
+
       body.dark-mode .exception-box {
-        background-color: #2d2d2d;
-        border-left-color: #d4a574;
+        background: #3a2d2d !important;
+        border-left: 4px solid #e57373 !important;
+      }
+
+      body.dark-mode .exception-box h4 {
+        color: #e57373;
       }
 
       body.dark-mode .highlight-section {
@@ -1644,14 +1674,11 @@
         border-color: #4a90e2;
       }
 
-      body.dark-mode .info-box {
-        background: #2a2a3a;
-      }
-
       body.dark-mode .highlight {
-        background: #4a3f2d;
-        border-color: #6b5a3c;
-        color: #f5d89f;
+        background: rgb(213, 190, 108);
+        border-color: #fbbf24;
+        color: #1a1a1a;
+        font-weight: 600;
       }
 
       body.dark-mode .rule-badge {
@@ -1672,8 +1699,8 @@
       }
 
       body.dark-mode .note-text {
-        background: #2a2a3a;
-        border-color: #404040;
+        background: linear-gradient(135deg, #2d2d3d 0%, #3a3a4a 100%);
+        border-color: #60a5fa;
       }
 
       body.dark-mode h2 {
@@ -1692,22 +1719,187 @@
       }
 
       body.dark-mode .toc-title {
-        color: #9ca3af;
+        color: #d4a574;
       }
 
       body.dark-mode .toc-list a {
-        color: #9ca3af;
+        color: #b0b0b0;
       }
 
       body.dark-mode .toc-list a:hover {
-        background: #2d2d2d;
-        color: #60a5fa;
+        background: rgba(212, 165, 116, 0.1);
+        color: #d4a574;
       }
 
       body.dark-mode .toc-list a.active {
-        background: #1e3a8a;
+        background: rgba(212, 165, 116, 0.15);
+        color: #d4a574;
+        border-left-color: #d4a574;
+      }
+
+      body.dark-mode .right-sidebar {
+        background: #1f1f1f;
+        border-left-color: #333;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+      }
+
+      body.dark-mode .sidebar-section h3 {
+        color: #d4a574 !important;
+      }
+
+      body.dark-mode .sidebar-section p {
+        color: #d4d4d4 !important;
+        background: rgba(212, 165, 116, 0.08) !important;
+      }
+
+      body.dark-mode .sidebar-section li {
+        background: rgba(212, 165, 116, 0.1) !important;
+        border-left-color: #d4a574;
+        color: #e5e5e5 !important;
+      }
+
+      body.dark-mode .sidebar-section.build-topics {
+        border-top-color: rgba(212, 165, 116, 0.2);
+      }
+
+      body.dark-mode .sidebar-section.build-topics a {
+        background: rgba(96, 165, 250, 0.08);
+        color: #d4d4d4;
+        border-color: transparent;
+      }
+
+      body.dark-mode .sidebar-section.build-topics a:hover {
+        background: rgba(96, 165, 250, 0.15);
+        color: #93c5fd;
+        border-color: #60a5fa;
+      }
+
+      body.dark-mode .toc-sidebar::-webkit-scrollbar-thumb {
+        background: #404040;
+      }
+
+      body.dark-mode .toc-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #505050;
+      }
+
+      body.dark-mode .right-sidebar::-webkit-scrollbar-thumb {
+        background: #404040;
+      }
+
+      body.dark-mode .right-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #505050;
+      }
+
+      /* Additional dark mode styles for missing elements */
+      body.dark-mode .tip-badge {
+        background: #4a3f2d !important;
+        color: #f5d89f !important;
+      }
+
+      body.dark-mode .menu-toggle {
+        color: #d4a574;
+      }
+
+      body.dark-mode .menu-toggle:hover {
+        color: #e5b685;
+      }
+
+      body.dark-mode .audio-btn {
+        background: rgba(212, 165, 116, 0.1);
+        color: #d4a574;
+      }
+
+      body.dark-mode .audio-btn:hover {
+        background: rgba(212, 165, 116, 0.2);
+        color: #e5b685;
+      }
+
+      body.dark-mode .audio-btn:active {
+        background: rgba(212, 165, 116, 0.25);
+      }
+
+      body.dark-mode .audio-btn-inline {
+        color: #e0afc7;
+      }
+
+      body.dark-mode .audio-btn-inline:hover {
+        color: #f0c0d7;
+      }
+
+      body.dark-mode .tooltip {
+        background: #e5e5e5;
+        color: #1a1a1a;
+      }
+
+      body.dark-mode .tooltip::after {
+        border-top-color: #e5e5e5;
+      }
+
+      body.dark-mode .next-btn {
+        background: #60a5fa;
+        box-shadow: 0 4px 16px rgba(96, 165, 250, 0.3);
+      }
+
+      body.dark-mode .next-btn:hover {
+        background: #93c5fd;
+      }
+
+      body.dark-mode .sidebar-section.build-topics a.active {
+        background: rgba(96, 165, 250, 0.2);
+        border-color: #60a5fa;
+        box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2);
+      }
+
+      body.dark-mode .sidebar-section.build-topics a.active span {
+        color: #93c5fd;
+        font-weight: 600;
+      }
+
+      body.dark-mode .sidebar-section.build-topics a.active i {
+        opacity: 1;
+        color: #60a5fa;
+      }
+
+      body.dark-mode .rule-btn.active {
+        background: #60a5fa;
+        border-color: #60a5fa;
+      }
+
+      body.dark-mode .rule-btn.active .rule-number {
+        background: #1a1a1a;
+        color: #60a5fa;
+      }
+
+      body.dark-mode .rule-btn.active .rule-title {
+        color: #1a1a1a;
+      }
+
+      body.dark-mode td {
+        color: #d4d4d4;
+      }
+
+      body.dark-mode h3,
+      body.dark-mode h4 {
+        color: #e5e5e5;
+      }
+
+      body.dark-mode p,
+      body.dark-mode li {
+        color: #d4d4d4;
+      }
+
+      body.dark-mode .subtitle {
+        color: #d4d4d4;
+      }
+
+      body.dark-mode .rule-description {
+        color: #d4d4d4;
+      }
+
+      body.dark-mode .french-text:hover {
         color: #93c5fd;
       }
+    
     </style>
   </head>
 
@@ -3427,6 +3619,8 @@
       // Theme Toggle Function
       function toggleTheme() {
         const body = document.body;
+        const themeToggle = document.getElementById("themeToggle");
+        const icon = themeToggle.querySelector("i");
         const currentTheme = localStorage.getItem("theme") || "warm";
 
         // Remove all theme classes first
@@ -3436,12 +3630,15 @@
         if (currentTheme === "warm") {
           body.classList.add("light-mode");
           localStorage.setItem("theme", "light");
+          icon.className = "fa-solid fa-moon";
         } else if (currentTheme === "light") {
           body.classList.add("dark-mode");
           localStorage.setItem("theme", "dark");
+          icon.className = "fa-solid fa-sun";
         } else {
           // dark mode, go back to warm
           localStorage.setItem("theme", "warm");
+          icon.className = "fa-solid fa-moon";
         }
       }
 
@@ -3728,14 +3925,21 @@
 
         // Load saved theme
         const savedTheme = localStorage.getItem("theme") || "warm";
+        const themeToggle = document.getElementById("themeToggle");
+        const icon = themeToggle ? themeToggle.querySelector("i") : null;
+        
         if (savedTheme === "light") {
           document.body.classList.add("light-mode");
+          if (icon) icon.className = "fa-solid fa-moon";
         } else if (savedTheme === "dark") {
           document.body.classList.add("dark-mode");
+          if (icon) icon.className = "fa-solid fa-sun";
+        } else {
+          // warm mode (default)
+          if (icon) icon.className = "fa-solid fa-moon";
         }
 
         // Add theme toggle button listener
-        const themeToggle = document.getElementById("themeToggle");
         if (themeToggle) {
           themeToggle.addEventListener("click", toggleTheme);
         }
