@@ -491,10 +491,35 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
         border-radius: 15px;
+        position: relative;
       }
 
       .table-responsive::-webkit-scrollbar {
         display: none;
+      }
+
+      /* Scroll hint for mobile tables */
+      @media (max-width: 768px) {
+        .table-responsive::after {
+          content: '→';
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: rgba(212, 165, 116, 0.3);
+          font-size: 1.5rem;
+          pointer-events: none;
+          animation: fadeScroll 2.5s ease-in-out infinite;
+        }
+
+        .table-responsive.scrolled::after {
+          display: none;
+        }
+      }
+
+      @keyframes fadeScroll {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
       }
 
       table {
@@ -664,6 +689,32 @@
         grid-template-columns: repeat(5, 1fr);
         gap: 16px;
         margin: 32px 0;
+      }
+
+      @media (max-width: 1200px) {
+        .rules-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .rules-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .rules-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .rules-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
       }
 
       .rule-btn {
@@ -1227,10 +1278,15 @@
           transform: translateX(-100%);
           transition: transform 0.3s ease;
           box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+          z-index: 1002;
         }
 
         .toc-sidebar.open {
           transform: translateX(0);
+        }
+
+        .right-sidebar {
+          display: none;
         }
 
         .main-content {
@@ -1241,45 +1297,87 @@
         }
 
         .container {
-          padding: 0 24px;
+          padding: 0 16px;
         }
 
         header {
-          padding: 60px 24px 40px;
+          padding: 60px 16px 40px;
         }
 
         header h1 {
-          font-size: 2rem;
+          font-size: 1.85rem;
+          line-height: 1.2;
         }
 
         section {
-          padding: 40px 24px;
+          padding: 32px 16px;
         }
 
         h2 {
-          font-size: 1.5rem;
+          font-size: 1.4rem;
         }
 
         .rules-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          margin: 20px 0;
+        }
+
+        .rule-btn {
+          padding: 16px 12px;
           gap: 8px;
         }
 
+        .rule-number {
+          width: 36px;
+          height: 36px;
+          font-size: 1rem;
+        }
+
+        .rule-title {
+          font-size: 0.8rem;
+        }
+
         .rule-section {
-          padding: 40px 24px;
+          padding: 24px 16px;
+        }
+
+        .rule-card {
+          padding: 20px;
+        }
+
+        .rule-badge {
+          font-size: 0.7rem;
+          padding: 6px 14px;
+        }
+
+        /* Table mobile improvements */
+        .table-responsive {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          margin: 16px -16px;
+          padding: 0 16px;
         }
 
         table {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
+          min-width: 520px;
         }
 
         th,
         td {
-          padding: 12px 8px;
+          padding: 14px 10px;
+          font-size: 0.85rem;
+        }
+
+        /* Keep arrows visible on tablets */
+        tbody tr td:not(:last-child)::after {
+          font-size: 2rem;
+          right: -12px;
         }
 
         .listening-section {
-          padding: 40px 24px;
+          padding: 32px 16px;
         }
 
         .listening-card {
@@ -1287,11 +1385,11 @@
         }
 
         .listening-content {
-          padding: 32px 24px;
+          padding: 24px 16px;
         }
 
         .listening-image {
-          height: 250px;
+          height: 220px;
           border-left: none;
           border-top: 3px solid #d4a574;
         }
@@ -1307,7 +1405,7 @@
         }
 
         .story-title {
-          font-size: 1.4rem;
+          font-size: 1.3rem;
         }
 
         .sidebar-section.build-topics a {
@@ -1318,37 +1416,213 @@
 
       @media (max-width: 480px) {
         .toc-sidebar {
-          width: 100%;
+          width: 85%;
+          max-width: 320px;
+        }
+
+        .container {
+          padding: 0 12px;
         }
 
         header {
-          padding: 40px 20px 30px;
+          padding: 50px 12px 30px;
         }
 
         header h1 {
-          font-size: 1.75rem;
+          font-size: 1.5rem;
+          line-height: 1.3;
         }
 
         .subtitle {
-          font-size: 1rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
         }
 
         section {
-          padding: 32px 20px;
+          padding: 24px 12px;
+        }
+
+        .rules-grid {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          margin: 16px 0;
+        }
+
+        .rule-btn {
+          padding: 14px 10px;
+          gap: 6px;
+        }
+
+        .rule-number {
+          width: 32px;
+          height: 32px;
+          font-size: 0.95rem;
+        }
+
+        .rule-title {
+          font-size: 0.75rem;
+          line-height: 1.3;
         }
 
         .rule-section {
-          padding: 32px 20px;
+          padding: 20px 12px;
+        }
+
+        .rule-card {
+          padding: 16px;
+        }
+
+        .rule-badge {
+          font-size: 0.65rem;
+          padding: 5px 12px;
+          display: block;
+          margin-bottom: 8px;
+          text-align: center;
+        }
+
+        .rule-description {
+          font-size: 0.9rem;
+          margin-bottom: 16px;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+          margin-bottom: 16px;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        /* Mobile table optimizations */
+        .table-responsive {
+          margin: 16px -12px;
+          padding: 0 12px;
         }
 
         table {
+          font-size: 0.75rem;
+          min-width: 420px;
+          box-shadow: var(--shadow-sm);
+        }
+
+        th {
+          padding: 10px 6px;
+          font-size: 0.65rem;
+          letter-spacing: 0.05em;
+        }
+
+        td {
+          padding: 10px 6px;
+          font-size: 0.75rem;
+        }
+
+        .french-word {
+          min-width: 80px;
+          font-size: 0.75rem;
+        }
+
+        /* Hide arrows on small mobile for better readability */
+        tbody tr td:not(:last-child)::after {
+          display: none;
+        }
+
+        .audio-btn {
+          width: 28px;
+          height: 28px;
+          font-size: 0.75rem;
+        }
+
+        .audio-btn-inline {
+          width: 28px;
+          height: 28px;
+          font-size: 0.8rem;
+        }
+
+        .theme-toggle {
+          width: 36px;
+          height: 36px;
+          top: 15px;
+          right: 15px;
+          font-size: 1rem;
+        }
+
+        .menu-toggle {
+          width: 48px;
+          height: 48px;
+          font-size: 1.3rem;
+        }
+
+        .tip-box,
+        .note-box,
+        .exception-box {
+          padding: 14px;
+          margin: 12px 0;
+          border-radius: 8px;
+        }
+
+        .tip-box h4,
+        .note-box h4,
+        .exception-box h4 {
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+        }
+
+        .tip-box p,
+        .note-box p,
+        .exception-box p {
           font-size: 0.85rem;
+          line-height: 1.5;
+        }
+
+        .story-title {
+          font-size: 1.1rem;
+        }
+
+        .listening-content {
+          padding: 20px 12px;
+        }
+      }
+
+      /* Tablet-specific optimizations */
+      @media (min-width: 481px) and (max-width: 768px) {
+        table {
+          font-size: 0.9rem;
         }
 
         th,
         td {
-          padding: 10px 6px;
-          font-size: 0.8rem;
+          padding: 16px 12px;
+          font-size: 0.875rem;
+        }
+
+        tbody tr td:not(:last-child)::after {
+          font-size: 2.2rem;
+        }
+      }
+
+      /* Mobile sidebar overlay */
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+
+      @media (max-width: 968px) {
+        body.sidebar-open {
+          overflow: hidden;
         }
       }
 
@@ -1908,6 +2182,9 @@
     <button class="menu-toggle" id="menuToggle" title="Toggle navigation">
       <i class="fas fa-list-ul"></i>
     </button>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Table of Contents Sidebar -->
     <aside class="toc-sidebar" id="tocSidebar">
@@ -3947,10 +4224,25 @@
         // Add mobile menu toggle listener
         const menuToggle = document.getElementById("menuToggle");
         const tocSidebar = document.getElementById("tocSidebar");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+        
         if (menuToggle && tocSidebar) {
           menuToggle.addEventListener("click", function () {
             tocSidebar.classList.toggle("open");
+            if (sidebarOverlay) {
+              sidebarOverlay.classList.toggle("active");
+            }
+            document.body.classList.toggle("sidebar-open");
           });
+
+          // Close sidebar when clicking overlay
+          if (sidebarOverlay) {
+            sidebarOverlay.addEventListener("click", function () {
+              tocSidebar.classList.remove("open");
+              sidebarOverlay.classList.remove("active");
+              document.body.classList.remove("sidebar-open");
+            });
+          }
 
           // Close sidebar when clicking outside on mobile
           document.addEventListener("click", function (e) {
@@ -3961,6 +4253,10 @@
               tocSidebar.classList.contains("open")
             ) {
               tocSidebar.classList.remove("open");
+              if (sidebarOverlay) {
+                sidebarOverlay.classList.remove("active");
+              }
+              document.body.classList.remove("sidebar-open");
             }
           });
 
@@ -4014,6 +4310,18 @@
             }
           });
         }
+
+        // Handle table scroll indicators on mobile
+        const tableContainers = document.querySelectorAll(".table-responsive");
+        tableContainers.forEach((container) => {
+          container.addEventListener("scroll", function () {
+            if (this.scrollLeft > 10) {
+              this.classList.add("scrolled");
+            } else {
+              this.classList.remove("scrolled");
+            }
+          });
+        });
       });
     </script>
   </body>

@@ -1,0 +1,145 @@
+/* Table Styles */
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+thead {
+  background: hsl(39, 100%, 73%);
+  border-bottom: none;
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+/* Arrow pointing to next column */
+tbody tr td:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: #d4a574;
+  font-weight: 600;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+th {
+  padding: 20px 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+th:last-child {
+  border-right: none;
+}
+
+.audio-cell {
+  width: 40px;
+  padding: 8px;
+  text-align: center;
+}
+
+.french-word {
+  display: inline-block;
+  min-width: 120px;
+}
+
+tbody tr:nth-child(odd) {
+  background: #fffbeb;
+}
+
+tbody tr:nth-child(even) {
+  background: white;
+}
+
+tbody tr:last-child td {
+  border-bottom: px solid #e8dfd6;
+}
+
+.audio-btn {
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  margin: 2px;
+}
+
+.audio-btn:first-child {
+  margin-left: 0;
+}
+
+td:has(.audio-btn) {
+  padding: 8px;
+}
+
+/* Dark Mode Table Styles */
+body.dark-mode table {
+  background: #2d2d2d;
+}
+
+body.dark-mode th {
+  background-color: #3a3a3a !important;
+}
+
+body.dark-mode tr:nth-child(even) {
+  background-color: #252525 !important;
+}
+
+body.dark-mode tr:nth-child(odd) {
+  background-color: #2d2d2d !important;
+}
